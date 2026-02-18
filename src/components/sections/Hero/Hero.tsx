@@ -50,8 +50,13 @@ export const Hero = () => {
         </div>
 
         {/* Dashboard preview - floats below hero with shadow */}
+<<<<<<< HEAD
         <div className="relative mt-12 w-full max-w-5xl px-2 sm:px-4">
           <div className="overflow-hidden rounded-2xl shadow-1xl ring-1 ring-black/5">
+=======
+        <div className="relative -mb-12 mt-12 w-full max-w-5xl px-2 pb-4 sm:px-4">
+          <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5">
+>>>>>>> 9fbd035ba7b023d8905ae5a6c1c82524cc39d162
             <img
               src="/dashboardImg2.png"
               alt="SocialEZ dashboard preview"
@@ -62,8 +67,11 @@ export const Hero = () => {
               decoding="async"
             />
           </div>
+<<<<<<< HEAD
           {/* Joint: pill button connects hero to card section */}
           
+=======
+>>>>>>> 9fbd035ba7b023d8905ae5a6c1c82524cc39d162
         </div>
       </div>
     </section>
