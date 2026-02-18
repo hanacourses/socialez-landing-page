@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { SECTION, CARD_1, CARD_2, CARD_3 } from "./constants";
 
 const CheckIcon = () => (
@@ -59,60 +60,36 @@ const ScheduleCard = () => (
 
 const CalendarCard = () => (
   <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] lg:p-8">
-    <div className="text-center">
+    <div className="">
       <h3 className="text-xl font-bold text-gray-900 md:text-2xl">{CARD_2.title}</h3>
       <p className="mt-2 text-base text-gray-600">{CARD_2.description}</p>
     </div>
-    <div className="flex items-center justify-center rounded-xl bg-gray-100 p-8 md:min-h-[400px]">
-      <div className="text-center">
-        <div className="mx-auto mb-4 h-32 w-32 rounded-lg bg-primary/20 flex items-center justify-center">
-          <svg
-            className="h-16 w-16 text-primary"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
-        </div>
-        <p className="text-sm text-gray-500">Calendar Preview</p>
-        <p className="mt-1 text-xs text-gray-400">Dummy calendar image placeholder</p>
-      </div>
+    <div className="flex items-center justify-center overflow-hidden">
+      <img
+        src="/Calender View 1.png"
+        alt="Calendar Preview"
+        width={800}
+        height={600}
+        className="w-full h-auto object-contain rounded-lg"
+      />
     </div>
   </div>
 );
 
 const RescheduleCard = () => (
   <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] lg:p-8">
-    <div className="text-center">
+    <div className="">
       <h3 className="text-xl font-bold text-gray-900 md:text-2xl">{CARD_3.title}</h3>
       <p className="mt-2 text-base text-gray-600">{CARD_3.description}</p>
     </div>
-    <div className="flex items-center justify-center rounded-xl bg-gray-100 p-8 md:min-h-[400px]">
-      <div className="text-center">
-        <div className="mx-auto mb-4 h-32 w-32 rounded-lg bg-primary/20 flex items-center justify-center">
-          <svg
-            className="h-16 w-16 text-primary"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-            />
-          </svg>
-        </div>
-        <p className="text-sm text-gray-500">Reschedule Form Preview</p>
-        <p className="mt-1 text-xs text-gray-400">Dummy form image placeholder</p>
-      </div>
+    <div className="flex items-center justify-center overflow-hidden">
+      <Image
+        src="/Modal.png"
+        alt="Reschedule Form Preview"
+        width={800}
+        height={600}
+        className="w-full h-auto object-contain rounded-lg"
+      />
     </div>
   </div>
 );

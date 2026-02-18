@@ -1,4 +1,4 @@
-import { Hero, OneDashboard, FeaturesTabs, Scheduling } from "@/components/sections";
+import { Hero, OneDashboard, FeaturesTabs, Scheduling, Performance } from "@/components/sections";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <OneDashboard />
       <FeaturesTabs />
       <Scheduling />
+      <Performance />
     </main>
   );
 }
