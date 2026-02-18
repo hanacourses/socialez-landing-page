@@ -47,7 +47,7 @@ export const FeaturesTabs = () => {
 
   return (
     <section
-      id="features-tabs"
+      id="features"
       className="scroll-mt-20 bg-white px-4 py-16 sm:px-6 md:py-24"
       aria-labelledby="features-tabs-heading"
     >

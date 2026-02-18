@@ -3,7 +3,7 @@ import { Hero, OneDashboard, FeaturesTabs, Scheduling, Performance,Faq,FooterCta
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-full min-w-0 overflow-x-hidden">
       <Hero />
       <OneDashboard />
       <FeaturesTabs />

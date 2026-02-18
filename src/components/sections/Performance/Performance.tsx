@@ -75,7 +75,7 @@ const FeatureCard = ({
       : "bg-purple-500";
 
   return (
-    <div className="rounded-xl border border-gray-200/80 bg-white p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)]">
+    <div className="min-w-0 rounded-xl border border-gray-200/80 bg-white p-4 shadow-[0_4px_14px_rgba(0,0,0,0.06)] sm:p-6">
       <div className={`${iconBgClass} mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg`}>
         <IconComponent />
       </div>
@@ -113,7 +113,7 @@ export const Performance = () => {
 
         <div className="mt-12">
           <div
-            className="relative  min-h-[600px] flex rounded-3xl border border-gray-200/80 p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] lg:flex-row lg:items-start lg:gap-8 lg:p-8"
+            className="relative flex min-h-0 flex-col gap-8 rounded-3xl border border-gray-200/80 p-4 shadow-[0_4px_14px_rgba(0,0,0,0.06)] sm:p-6 md:min-h-[500px] lg:flex-row lg:items-start lg:gap-8 lg:p-8"
             style={{
               backgroundImage: `linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(227,235,255,1) 100%), url("/performance_Background_Image.png")`,
               backgroundSize: "100% 100%, cover",
@@ -121,7 +121,7 @@ export const Performance = () => {
               backgroundRepeat: "no-repeat, no-repeat",
             }}
           >
-            <div className="flex col-span-2 self-center gap-6 w-[65%]">
+            <div className="flex w-full min-w-0 flex-col gap-6 sm:grid sm:grid-cols-2 lg:w-[55%] lg:flex-none lg:flex-col lg:grid-cols-none">
               <FeatureCard
                 icon="target"
                 title={FEATURE_1.title}
@@ -138,13 +138,13 @@ export const Performance = () => {
                 description={FEATURE_3.description}
               />
             </div>
-            <div className="absolute right-0 top-20 flex items-center justify-center overflow-hidden rounded-xl w-[30%]">
+            <div className="relative flex w-full min-w-0 items-center justify-center overflow-hidden rounded-xl lg:flex-1">
               <Image
                 src="/performance.png"
                 alt="Performance analytics dashboard"
                 width={800}
                 height={600}
-                className="h-auto w-full object-contain"
+                className="h-auto w-full max-w-md object-contain lg:max-w-none"
                 loading="lazy"
                 decoding="async"
               />

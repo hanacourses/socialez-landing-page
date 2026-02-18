@@ -13,6 +13,7 @@ const HERO = {
 export const Hero = () => {
   return (
     <section
+      id="hero"
       className="relative min-h-[85vh] overflow-hidden"
       style={{
         background:
@@ -23,7 +24,7 @@ export const Hero = () => {
       }}
       aria-labelledby="hero-heading"
     >
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 pt-16 pb-8 text-center sm:px-6 md:pt-36">
+      <div className="relative mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-16 pb-8 text-center sm:px-6 md:pt-36">
         <h1
           id="hero-heading"
           className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
