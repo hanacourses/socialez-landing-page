@@ -3,6 +3,7 @@ export { OneDashboard } from "./OneDashboard";
 export { FeaturesTabs } from "./FeaturesTabs";
 export { Scheduling } from "./Scheduling";
 export { Performance } from "./Performance";
+export { Conversations } from "./Conversations";
 export { default as FooterCta } from "./FooterCTA/FooterCta";
 export { default as Faq } from "./FAQ/Faq";
 export { default as StartedInMins } from "./StartedInMins";

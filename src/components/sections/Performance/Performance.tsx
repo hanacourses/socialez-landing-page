@@ -113,15 +113,15 @@ export const Performance = () => {
 
         <div className="mt-12">
           <div
-            className="flex flex-col gap-8 rounded-3xl border border-gray-200/80 p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] lg:flex-row lg:items-start lg:gap-8 lg:p-8"
+            className="relative  min-h-[600px] flex rounded-3xl border border-gray-200/80 p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] lg:flex-row lg:items-start lg:gap-8 lg:p-8"
             style={{
-              backgroundImage: `linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(227,235,255,1) 100%), url("/performance Background Image.png")`,
+              backgroundImage: `linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(227,235,255,1) 100%), url("/performance_Background_Image.png")`,
               backgroundSize: "100% 100%, cover",
               backgroundPosition: "center, center",
               backgroundRepeat: "no-repeat, no-repeat",
             }}
           >
-            <div className="flex flex-col gap-6 lg:flex-row lg:w-[70%]">
+            <div className="flex col-span-2 self-center gap-6 w-[65%]">
               <FeatureCard
                 icon="target"
                 title={FEATURE_1.title}
@@ -138,7 +138,7 @@ export const Performance = () => {
                 description={FEATURE_3.description}
               />
             </div>
-            <div className="flex items-center justify-center overflow-hidden rounded-xl lg:w-[30%]">
+            <div className="absolute right-0 top-20 flex items-center justify-center overflow-hidden rounded-xl w-[30%]">
               <Image
                 src="/performance.png"
                 alt="Performance analytics dashboard"

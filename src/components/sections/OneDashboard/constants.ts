@@ -24,7 +24,7 @@ export const CARD_3 = {
 } as const;
 
 /** Step labels image (Step One, Step Two, Step Three) in public folder */
-export const STEP_LABELS_IMAGE = ["/Step 1.png", "/Step 2.png", "/Step 3.png"] as const;
+export const STEP_LABELS_IMAGE = ["/Step1.png", "/Step2.png", "/Step3.png"] as const;
 
 /** Step card images in public folder */
-export const STEP_IMAGES = ["/Step One Card Content1.png", "/Step One Card Content2.png", "/Channel Statistics.png"] as const;
+export const STEP_IMAGES = ["/Step_One_Card_Content1.png", "/Step_One_Card_Content2.png", "/Channel_Statistics.png"] as const;

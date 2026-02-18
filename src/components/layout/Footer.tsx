@@ -9,7 +9,7 @@ const SECTIONS_LINKS = [
   { label: "Dashboard", href: "#dashboard" },
   { label: "Scheduling", href: "#scheduling" },
   { label: "Analytics", href: "#analytics" },
-  { label: "Engagement", href: "#engagement" },
+  { label: "Conversations", href: "#conversations" },
   { label: "Pricing", href: "#pricing" },
 ] as const;
 

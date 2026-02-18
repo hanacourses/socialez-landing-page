@@ -66,7 +66,7 @@ const CalendarCard = () => (
     </div>
     <div className="flex items-center justify-center overflow-hidden">
       <img
-        src="/Calender View 1.png"
+        src="/Calender_View1.png"
         alt="Calendar Preview"
         width={800}
         height={600}

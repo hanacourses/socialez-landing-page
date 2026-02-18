@@ -1,4 +1,5 @@
-import { Hero, OneDashboard, FeaturesTabs, Scheduling, Performance,Faq,FooterCta,StartedInMins } from "@/components/sections";
+import { Footer } from "@/components/layout";
+import { Hero, OneDashboard, FeaturesTabs, Scheduling, Performance,Faq,FooterCta,StartedInMins, Conversations } from "@/components/sections";
 
 export default function Home() {
   return (
@@ -8,9 +9,10 @@ export default function Home() {
       <FeaturesTabs />
       <Scheduling />
       <Performance />
+      <Conversations />
       <StartedInMins />
       <Faq />
-      <FooterCta />
+      <Footer />
     </main>
   );
 }
