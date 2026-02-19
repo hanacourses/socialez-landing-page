@@ -13,9 +13,12 @@ const getActiveHref = (): string => {
 };
 
 const useActiveNavLink = () => {
-  const [activeHref, setActiveHref] = useState(getActiveHref);
+  // Use "/" for initial state so server and client match (avoids hydration mismatch)
+  const [activeHref, setActiveHref] = useState("/");
 
   useEffect(() => {
+    setActiveHref(getActiveHref());
+
     const handleHashChange = () => setActiveHref(getActiveHref());
 
     const updateActiveFromScroll = () => {
