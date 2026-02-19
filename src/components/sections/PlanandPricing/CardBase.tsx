@@ -33,7 +33,7 @@ const CardBase = (props: CardBaseProps) => {
             <div className="w-full flex justify-start items-start gap-2 flex-col">
                 <span className="text-4xl font-normal text-slate-900">{title}</span>
                 <h4 className="text-4xl font-bold text-slate-900">${price} <span className="text-sm font-normal text-slate-500">/ mo</span></h4>
-                <p className="text-md font-normal text-slate-800">{description}</p>
+                <p className="text-base font-normal text-slate-800">{description}</p>
             </div>
             <Button className="py-6 w-full flex justify-center items-center" btnClassName="w-full shadow-lg" variant={buttonVariant || "primary"} onClick={buttonLink}>
                 {buttonText}
@@ -49,7 +49,7 @@ const CardBase = (props: CardBaseProps) => {
 
             </ul>
             <div className="flex flex-col justify-start items-start gap-3 py-3">
-                <h5 className="text-md font-bold text-slate-800">{subFeatureTitle}</h5>
+                <h5 className="text-base font-bold text-slate-800">{subFeatureTitle}</h5>
                 {subFeature?.map((item, idx) => {
                     return (
                         <li className="flex justify-start items-center gap-2 text-slate-800 " key={idx}>

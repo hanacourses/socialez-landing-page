@@ -45,6 +45,14 @@ export const FeaturesTabs = () => {
     []
   );
 
+  const handleCalButtonKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      const button = e.currentTarget as HTMLButtonElement;
+      button.click();
+    }
+  }, []);
+
   return (
     <section
       id="features"
@@ -54,14 +62,14 @@ export const FeaturesTabs = () => {
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <span
-            className="inline-block rounded-full bg-ai-assist px-4 py-1.5 text-sm font-normal text-ai-assist-text"
+            className="inline-block rounded-full bg-yellow px-4 py-1.5 text-sm font-normal text-ai-assist-text"
             aria-hidden
           >
             {FEATURES_SECTION.badge}
           </span>
           <h2
             id="features-tabs-heading"
-            className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
           >
             {FEATURES_SECTION.heading}
           </h2>

@@ -66,7 +66,7 @@ export default function Footer() {
           {/* Column 1: Logo, description, social */}
           <div className="w-full flex flex-col gap-4 justify-start items-center">
             <Logo height={12} />
-            <p className="max-w-md text-center text-md leading-relaxed text-gray-700">
+            <p className="max-w-md text-center text-base leading-relaxed text-gray-700">
               AI-powered social media management for creating, scheduling,
               tracking, and engaging — all from one place.
             </p>
@@ -98,7 +98,7 @@ export default function Footer() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-md text-gray-700 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded px-1"
+                    className="text-base text-gray-700 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded px-1"
                   >
                     {label}
                   </Link>
@@ -117,7 +117,7 @@ export default function Footer() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className="text-md text-gray-700 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded px-1"
+                    className="text-base text-gray-700 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded px-1"
                   >
                     {label}
                   </Link>

@@ -13,9 +13,10 @@ const getActiveHref = (): string => {
 };
 
 const useActiveNavLink = () => {
-  const [activeHref, setActiveHref] = useState(getActiveHref);
+  const [activeHref, setActiveHref] = useState("/");
 
   useEffect(() => {
+    setActiveHref(getActiveHref());
     const handleHashChange = () => setActiveHref(getActiveHref());
 
     const updateActiveFromScroll = () => {

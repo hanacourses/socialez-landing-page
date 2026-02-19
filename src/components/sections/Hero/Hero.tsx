@@ -9,24 +9,34 @@ const HERO = {
   ctaPrimary: "Start free trial",
   ctaPrimaryHref: "#signup",
   ctaSecondary: "Book a 15-minute setup call",
-  ctaSecondaryHref: "#book-call",
 } as const;
 
 export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] overflow-hidden"
+      className="relative min-h-[85vh] overflow-hidden bg-background"
+      aria-labelledby="hero-heading"
       style={{
         background:
-          "linear-gradient(to bottom, color-mix(in srgb, var(--color-primary) 25%, transparent) 0%, var(--background) 100%), url(/bg.png)",
-        backgroundSize: "100% 100%, cover",
-        backgroundPosition: "0 0, center",
-        backgroundRepeat: "no-repeat, no-repeat",
-      }}
-      aria-labelledby="hero-heading"
+          "linear-gradient(to bottom, color-mix(in srgb, var(--color-primary) 25%, transparent) 0%, var(--background) 100%)",
+      }}  
     >
-      <div className="relative mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-16 pb-8 text-center sm:px-6 md:pt-36">
+      {/* Background image - absolute layer */}
+      <div
+        className="absolute inset-0 z-0 bg-contain"
+        style={{ backgroundImage: "url(/bg.png)" }}
+        aria-hidden
+      />
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0 z-[1]"
+        
+        aria-hidden
+      />
+      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-16 pb-8 text-center sm:px-6 md:pt-36"
+      
+      >
         <h1
           id="hero-heading"
           className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
@@ -41,7 +51,12 @@ export const Hero = () => {
           <Button href={HERO.ctaPrimaryHref} variant="primary">
             {HERO.ctaPrimary}
           </Button>
-          <Button href={HERO.ctaSecondaryHref} variant="outline">
+          <Button
+            variant="outline"
+            dataCalLink="bhaskar-socialez/setup-call"
+            dataCalNamespace="setup-call"
+            dataCalConfig='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+          >
             {HERO.ctaSecondary}
           </Button>
         </div>
