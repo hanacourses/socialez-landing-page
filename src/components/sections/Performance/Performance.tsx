@@ -113,7 +113,7 @@ export const Performance = () => {
 
         <div className="mt-12">
           <div
-            className="relative flex min-h-0 flex-col gap-8 rounded-3xl border border-gray-200/80 p-4 shadow-[0_4px_14px_rgba(0,0,0,0.06)] sm:p-6 md:min-h-[500px] lg:flex-row lg:items-start lg:gap-8 lg:p-8"
+            className="relative flex min-h-[600px] flex-col gap-8 rounded-3xl border border-gray-200/80 p-4 shadow-[0_4px_14px_rgba(0,0,0,0.06)] sm:p-6 md:min-h-[500px] lg:flex-row lg:items-start lg:gap-8 lg:p-8"
             style={{
               backgroundImage: `linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(227,235,255,1) 100%), url("/performance_Background_Image.png")`,
               backgroundSize: "100% 100%, cover",
@@ -121,7 +121,7 @@ export const Performance = () => {
               backgroundRepeat: "no-repeat, no-repeat",
             }}
           >
-            <div className="flex w-full min-w-0 flex-col gap-6 sm:grid sm:grid-cols-2 lg:w-[55%] lg:flex-none lg:flex-col lg:grid-cols-none">
+            <div className="flex w-full min-w-0 flex-col lg:self-center gap-6 lg:w-[65%] lg:flex-row">
               <FeatureCard
                 icon="target"
                 title={FEATURE_1.title}
@@ -138,7 +138,7 @@ export const Performance = () => {
                 description={FEATURE_3.description}
               />
             </div>
-            <div className="relative flex w-full min-w-0 items-center justify-center overflow-hidden rounded-xl lg:flex-1">
+            <div className="flex items-center justify-center overflow-hidden rounded-xl lg:absolute lg:right-0 lg:top-1/2 lg:w-[30%] lg:-translate-y-1/2">
               <Image
                 src="/performance.png"
                 alt="Performance analytics dashboard"
