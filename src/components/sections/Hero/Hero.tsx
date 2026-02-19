@@ -67,15 +67,13 @@ export const Hero = () => {
             <img
               src="/dashboardImg2.png"
               alt="SocialEZ dashboard preview"
-              width={1200}
-              height={720}
               className="w-full object-contain"
               loading="eager"
               decoding="async"
             />
           </div>
-          
-          
+
+
         </div>
       </div>
     </section>

@@ -12,7 +12,7 @@ export default function Home() {
       <Conversations />
       <WhoItFor />
       <PlanAndPricing />
-      <StartedInMins />
+      {/* <StartedInMins /> */}
       <Faq />
       <FooterCta />
       <Footer />
