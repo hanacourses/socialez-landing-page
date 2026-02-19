@@ -54,7 +54,7 @@ export const FeaturesTabs = () => {
       <div className="mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <span
-            className="inline-block rounded-full bg-amber-100 px-4 py-1.5 text-sm font-normal text-gray-900"
+            className="inline-block rounded-full bg-ai-assist px-4 py-1.5 text-sm font-normal text-ai-assist-text"
             aria-hidden
           >
             {FEATURES_SECTION.badge}
@@ -74,7 +74,7 @@ export const FeaturesTabs = () => {
           {/* Left: Tabs */}
           <div className="flex flex-col">
             <div
-              className="rounded-2xl border border-gray-200/80 bg-white p-2 shadow-[0_4px_14px_rgba(0,0,0,0.06)]"
+              className="rounded-2xl border border-gray-200/80 bg-white p-2 shadow-card"
               role="tablist"
               aria-label="Feature steps"
             >
@@ -113,7 +113,7 @@ export const FeaturesTabs = () => {
           </div>
 
           {/* Right: Image / Gif (one per tab) */}
-          <div className="flex min-h-[400px] flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-50 shadow-[0_4px_14px_rgba(0,0,0,0.06)] md:min-h-[480px]">
+          <div className="flex min-h-[400px] flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-50 shadow-card md:min-h-[480px]">
             <div className="relative flex-1 overflow-hidden">
               <img
                 key={activeTab.id}

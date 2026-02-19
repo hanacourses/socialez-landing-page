@@ -13,8 +13,8 @@ export default function Home() {
       <WhoItFor />
       <PlanAndPricing />
       <StartedInMins />
-      <FooterCta />
       <Faq />
+      <FooterCta />
       <Footer />
     </main>
   );

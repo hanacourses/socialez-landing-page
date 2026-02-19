@@ -69,13 +69,13 @@ const FeatureCard = ({
 
   const iconBgClass =
     icon === "target"
-      ? "bg-yellow-500"
+      ? "bg-yellow"
       : icon === "dashboard"
-      ? "bg-blue-400"
-      : "bg-purple-500";
+      ? "bg-primary"
+      : "bg-card";
 
   return (
-    <div className="min-w-0 rounded-xl border border-gray-200/80 bg-white p-4 shadow-[0_4px_14px_rgba(0,0,0,0.06)] sm:p-6">
+    <div className="min-w-0 rounded-xl border border-gray-200/80 bg-white p-4 shadow-card sm:p-6">
       <div className={`${iconBgClass} mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg`}>
         <IconComponent />
       </div>
@@ -95,7 +95,7 @@ export const Performance = () => {
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
           <span
-            className="inline-block rounded-full bg-yellow-400 px-4 py-1.5 text-sm font-normal text-gray-900"
+            className="inline-block rounded-full bg-yellow px-4 py-1.5 text-sm font-normal text-gray-900"
             aria-hidden
           >
             {SECTION.badge}
@@ -113,9 +113,9 @@ export const Performance = () => {
 
         <div className="mt-12">
           <div
-            className="relative flex min-h-[600px] flex-col gap-8 rounded-3xl border border-gray-200/80 p-4 shadow-[0_4px_14px_rgba(0,0,0,0.06)] sm:p-6 md:min-h-[500px] lg:flex-row lg:items-start lg:gap-8 lg:p-8"
+            className="relative flex min-h-[600px] flex-col gap-8 rounded-3xl border border-gray-200/80 p-4 shadow-card sm:p-6 md:min-h-[500px] lg:flex-row lg:items-start lg:gap-8 lg:p-8"
             style={{
-              backgroundImage: `linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(227,235,255,1) 100%), url("/performance_Background_Image.png")`,
+              backgroundImage: `linear-gradient(to top, rgb(255 255 255 / 0.9) 0%, var(--color-card) 100%), url("/performance_Background_Image.png")`,
               backgroundSize: "100% 100%, cover",
               backgroundPosition: "center, center",
               backgroundRepeat: "no-repeat, no-repeat",

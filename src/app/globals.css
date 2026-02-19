@@ -9,6 +9,21 @@
   --color-yellow: #FFD86F;
   --color-ink: #120A0B;
   --color-mint: #C9FF85;
+  /* Surfaces & UI */
+  --color-card: #E3EBFF;
+  --color-surface: #F1F4F8;
+  --color-faq: #F3FAFF;
+  --color-accent-dark: #1C105A;
+  --color-success: #10B981;
+  --color-muted: #333B52;
+  /* Badge: AI Assist (warm off-white) */
+  --color-ai-assist: #FDF8ED;
+  --color-ai-assist-text: #343434;
+  /* Shadows */
+  --shadow-card: 0 4px 14px rgb(0 0 0 / 0.06);
+  --shadow-icon: 0 2px 8px rgb(0 0 0 / 0.12);
+  --shadow-icon-inner: 0 2px 12px rgb(255 255 255 / 0.25);
+  --color-landing-bg: #e0f2fe;
 }
 
 @theme inline {
@@ -19,16 +34,27 @@
   --color-yellow: var(--color-yellow);
   --color-ink: var(--color-ink);
   --color-mint: var(--color-mint);
+  --color-card: var(--color-card);
+  --color-surface: var(--color-surface);
+  --color-faq: var(--color-faq);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-success: var(--color-success);
+  --color-muted: var(--color-muted);
+  --color-ai-assist: var(--color-ai-assist);
+  --color-ai-assist-text: var(--color-ai-assist-text);
+  --shadow-card: var(--shadow-card);
+  --shadow-icon: var(--shadow-icon);
+  --shadow-icon-inner: var(--shadow-icon-inner);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 html {
   scroll-behavior: smooth;
@@ -45,18 +71,17 @@ body {
   min-width: 0;
 }
 
-/* Landing background: bg.png as pattern, light blue base, gradient in lower area */
+/* Landing background: bg.png as pattern, light blue base */
 .bg-landing {
-  background-color: #e0f2fe;
+  background-color: var(--color-landing-bg);
   background-image: url("/bg.png");
   background-repeat: repeat;
   background-position: 0 0;
   background-size: auto;
 }
 
-/* Optional: if bg.png is a single asset (no repeat), use cover instead */
 .bg-landing-cover {
-  background-color: #e0f2fe;
+  background-color: var(--color-landing-bg);
   background-image: url("/bg.png");
   background-repeat: no-repeat;
   background-position: center top;

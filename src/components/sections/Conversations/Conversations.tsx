@@ -9,7 +9,7 @@ export const Conversations = () => {
       id="conversations"
       className="relative z-10 scroll-mt-20 px-4 pt-10 pb-16 sm:px-6"
       style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(227,235,255,0.95) 100%), url("/BG_Pattern.png")`,
+        backgroundImage: `linear-gradient(to bottom, rgb(255 255 255 / 0.95) 0%, color-mix(in srgb, var(--color-card) 95%, transparent) 100%), url("/BG_Pattern.png")`,
         backgroundSize: "100% 100%, auto",
         backgroundPosition: "center, center",
         backgroundRepeat: "no-repeat, repeat",
@@ -23,7 +23,7 @@ export const Conversations = () => {
           <div className="flex-1 lg:flex lg:flex-col lg:justify-center lg:items-center">
             <div className="">
               <span
-                className="inline-block rounded-full bg-[#10B981] px-4 py-1.5 text-sm font-normal text-white"
+                className="inline-block rounded-full bg-success px-4 py-1.5 text-sm font-normal text-white"
                 aria-hidden
               >
                 {SECTION.badge}

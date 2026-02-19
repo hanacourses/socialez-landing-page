@@ -119,11 +119,11 @@ const ThumbnailPlaceholder = () => (
 
 export const InboxComponent = () => {
   return (
-    <div className="w-full rounded-3xl border border-gray-200/80 bg-white p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] lg:p-8">
+    <div className="w-full rounded-3xl border border-gray-200/80 bg-white p-6 shadow-card lg:p-8">
       {/* Header */}
       <div className="mb-6 flex items-center justify-between">
         <h3 className="text-lg font-semibold text-gray-900">Inbox</h3>
-        <span className="rounded-full bg-blue-500 px-2.5 py-1 text-xs font-medium text-white">
+        <span className="rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-white">
           25
         </span>
       </div>

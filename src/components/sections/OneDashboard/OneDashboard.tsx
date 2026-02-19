@@ -1,5 +1,6 @@
 "use client";
 
+import SectionBadge from "@/components/UI/SectionBadge";
 import { SECTION, CARD_1, CARD_2, CARD_3, STEP_IMAGES, STEP_LABELS_IMAGE } from "./constants";
 import { SocialIconsSlider } from "./SocialIconsSlider";
 
@@ -52,7 +53,7 @@ const CardBase = ({
     {!stepLabelAtBottom && (
       <StepLabelImg src={stepLabelSrc} alt={stepLabelAlt} className="mb-2" />
     )}
-    <div className="flex w-full flex-1 flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-linear-to-b from-primary/10 to-white shadow-[0_4px_14px_rgba(0,0,0,0.06)]">
+    <div className="flex w-full flex-1 flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-linear-to-b from-primary/10 to-white shadow-card">
       <div className="relative w-full overflow-hidden">
         <img
           src={imageSrc}
@@ -62,7 +63,7 @@ const CardBase = ({
           decoding="async"
         />
         {imageOverlay != null && (
-          <div className="absolute bottom-10 left-0 right-0 z-10 w-[350px] mx-auto">
+          <div className="absolute bottom-12 left-0 right-0 z-10 w-[350px] mx-auto">
             {imageOverlay}
           </div>
         )}
@@ -87,12 +88,7 @@ export const OneDashboard = () => {
     >
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <span
-            className="inline-block rounded-full bg-cyan px-4 py-1.5 text-sm font-normal text-gray-900"
-            aria-hidden
-          >
-            {SECTION.badge}
-          </span>
+          <SectionBadge variant="cyan">{SECTION.badge}</SectionBadge>
           <h2
             id="one-dashboard-heading"
             className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
