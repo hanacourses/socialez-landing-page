@@ -36,26 +36,15 @@ const ScheduleCard = () => (
         ))}
       </ul>
     </div>
-    <div className="flex flex-1 items-center justify-center rounded-xl bg-gray-100 p-8 md:min-h-[300px]">
-      <div className="text-center">
-        <div className="mx-auto mb-4 h-24 w-24 rounded-lg bg-primary/20 flex items-center justify-center">
-          <svg
-            className="h-12 w-12 text-primary"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
-        </div>
-        <p className="text-sm text-gray-500">Schedule Preview</p>
-        <p className="mt-1 text-xs text-gray-400">Dummy image placeholder</p>
-      </div>
+    <div className="flex flex-1 items-center justify-center overflow-hidden rounded-xl bg-gray-100 p-4 md:min-h-[300px]">
+      <Image
+        src="/Schedule_posts.gif"
+        alt="Schedule posts preview"
+        width={800}
+        height={600}
+        className="w-full h-auto object-contain rounded-lg"
+        unoptimized
+      />
     </div>
   </div>
 );

@@ -42,7 +42,7 @@ const IconItem = ({
 export const SocialIconsSlider = () => {
   return (
     <div
-      className="w-full overflow-hidden py-4"
+      className="flex h-22 w-full items-center overflow-hidden py-4"
       aria-label="Social platforms you can connect"
     >
       <Marquee
@@ -50,7 +50,7 @@ export const SocialIconsSlider = () => {
         direction="left"
         gradient={false}
         pauseOnHover
-        className="[&>.overflow-hidden]:overflow-visible!"
+        className="social-icons-marquee h-full scrollbar-hide [&>.overflow-hidden]:!overflow-visible [&_.overflow-hidden]:!overflow-hidden"
       >
         <div className="flex shrink-0 gap-4 pr-4 md:gap-5 md:pr-5" role="list">
           {SOCIAL_PLATFORMS.map((platform) => (

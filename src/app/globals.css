@@ -87,3 +87,20 @@ body {
   background-position: center top;
   background-size: cover;
 }
+
+/* Hide scrollbar while keeping overflow/scroll behavior (e.g. for marquee) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+/* Prevent social icons slider scrollbar from overlapping icons */
+.social-icons-marquee .overflow-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.social-icons-marquee .overflow-hidden::-webkit-scrollbar {
+  display: none;
+}

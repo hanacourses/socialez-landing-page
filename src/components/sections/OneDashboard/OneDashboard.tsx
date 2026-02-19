@@ -63,7 +63,7 @@ const CardBase = ({
           decoding="async"
         />
         {imageOverlay != null && (
-          <div className="absolute bottom-12 left-0 right-0 z-10 w-[350px] mx-auto">
+          <div className="absolute bottom-12 left-0 right-0 z-10 mx-auto w-[350px] min-h-[88px] overflow-hidden">
             {imageOverlay}
           </div>
         )}
