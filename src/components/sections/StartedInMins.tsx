@@ -9,7 +9,7 @@ const StartedInMins = () => {
                     {['Connect Your Accounts', 'Add Your Brand Details', 'Start Creating and Scheduling'].map((item, idx) => {
                         return (
                             <div key={item} className="flex justify-start items-center gap-3">
-                                <span className="text-sm w-8 h-8 p-2 rounded-full bg-[#0172F4] font-bold flex justify-center items-center">0{idx + 1}</span>
+                                <span className="text-sm w-8 h-8 p-2 rounded-full bg-primary text-white font-bold flex justify-center items-center">0{idx + 1}</span>
                                 <h3 className="text-md text-slate-500">{item}</h3>
                             </div>
                         )

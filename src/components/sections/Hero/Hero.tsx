@@ -1,5 +1,7 @@
 "use client";
 
+import Button from "@/components/UI/Button";
+
 const HERO = {
   heading: "Social media Made easy",
   description:
@@ -17,7 +19,7 @@ export const Hero = () => {
       className="relative min-h-[85vh] overflow-hidden"
       style={{
         background:
-          "linear-gradient(to bottom, #0172F440 0%, #FFFFFF 100%), url(/bg.png)",
+          "linear-gradient(to bottom, color-mix(in srgb, var(--color-primary) 25%, transparent) 0%, var(--background) 100%), url(/bg.png)",
         backgroundSize: "100% 100%, cover",
         backgroundPosition: "0 0, center",
         backgroundRepeat: "no-repeat, no-repeat",
@@ -36,18 +38,12 @@ export const Hero = () => {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href={HERO.ctaPrimaryHref}
-            className="inline-flex h-12 min-w-[180px] items-center justify-center rounded-xl bg-blue-600 px-6 text-base font-medium text-white shadow-md transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          >
+          <Button href={HERO.ctaPrimaryHref} variant="primary">
             {HERO.ctaPrimary}
-          </a>
-          <a
-            href={HERO.ctaSecondaryHref}
-            className="inline-flex h-12 min-w-[220px] items-center justify-center rounded-xl border-2 border-blue-600 bg-white px-6 text-base font-medium text-blue-600 transition-colors hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          >
+          </Button>
+          <Button href={HERO.ctaSecondaryHref} variant="outline">
             {HERO.ctaSecondary}
-          </a>
+          </Button>
         </div>
 
         {/* Dashboard preview - floats below hero with shadow */}
@@ -56,15 +52,13 @@ export const Hero = () => {
             <img
               src="/dashboardImg2.png"
               alt="SocialEZ dashboard preview"
-              width={1200}
-              height={720}
               className="w-full object-contain"
               loading="eager"
               decoding="async"
             />
           </div>
-          
-          
+
+
         </div>
       </div>
     </section>

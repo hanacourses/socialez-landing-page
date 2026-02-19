@@ -216,7 +216,7 @@ export const FeaturesTabs = () => {
                         }`}
                     >
                       <span
-                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${isActive ? "bg-primary text-slate-900" : " text-gray-500"
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${isActive ? " text-slate-900" : " text-gray-500"
                           }`}
                         aria-hidden
                       >

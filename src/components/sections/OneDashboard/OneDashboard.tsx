@@ -1,6 +1,8 @@
 "use client";
 
+import SectionBadge from "@/components/UI/SectionBadge";
 import { SECTION, CARD_1, CARD_2, CARD_3, STEP_IMAGES, STEP_LABELS_IMAGE } from "./constants";
+import { SocialIconsSlider } from "./SocialIconsSlider";
 
 const CARDS = [
   { title: CARD_1.title, description: CARD_1.description, image: STEP_IMAGES[0], alt: "Create your SocialEZ account" },
@@ -36,6 +38,7 @@ const CardBase = ({
   title,
   description,
   stepLabelAtBottom,
+  imageOverlay,
 }: {
   stepLabelSrc: string;
   stepLabelAlt: string;
@@ -44,12 +47,13 @@ const CardBase = ({
   title: string;
   description: string;
   stepLabelAtBottom?: boolean;
+  imageOverlay?: React.ReactNode;
 }) => (
   <article className="flex flex-col items-center gap-5">
     {!stepLabelAtBottom && (
       <StepLabelImg src={stepLabelSrc} alt={stepLabelAlt} className="mb-2" />
     )}
-    <div className="flex w-full flex-1 flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-linear-to-b from-primary/10 to-white shadow-[0_4px_14px_rgba(0,0,0,0.06)]">
+    <div className="flex w-full flex-1 flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-linear-to-b from-primary/10 to-white shadow-card">
       <div className="relative w-full overflow-hidden">
         <img
           src={imageSrc}
@@ -58,6 +62,11 @@ const CardBase = ({
           loading="lazy"
           decoding="async"
         />
+        {imageOverlay != null && (
+          <div className="absolute bottom-12 left-0 right-0 z-10 mx-auto w-[350px] min-h-[88px] overflow-hidden">
+            {imageOverlay}
+          </div>
+        )}
       </div>
       <div className="p-6">
         <h3 className="text-lg font-bold text-center text-gray-900">{title}</h3>
@@ -79,12 +88,7 @@ export const OneDashboard = () => {
     >
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <span
-            className="inline-block rounded-full bg-cyan px-4 py-1.5 text-sm font-normal text-gray-900"
-            aria-hidden
-          >
-            {SECTION.badge}
-          </span>
+          <SectionBadge variant="cyan">{SECTION.badge}</SectionBadge>
           <h2
             id="one-dashboard-heading"
             className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
@@ -107,6 +111,7 @@ export const OneDashboard = () => {
               title={card.title}
               description={card.description}
               stepLabelAtBottom={index === 1}
+              imageOverlay={index === 1 ? <SocialIconsSlider /> : undefined}
             />
           ))}
         </div>

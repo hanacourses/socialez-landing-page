@@ -1,20 +1,39 @@
-const CtaButton = () => {
-    return (
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a
-                href="#signup"
-                className="inline-flex h-13 min-w-[140px] items-center justify-center rounded-xl bg-[#0172F4] px-6 text-base font-medium text-white shadow-sm transition-colors hover:bg-[#0172F4]/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-            >
-                Start free
-            </a>
-            <a
-                href="#book-call"
-                className="inline-flex h-13 min-w-[220px] items-center justify-center rounded-xl font-semibold bg-white px-6 text-base text-gray-900  transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-            >
-                Book a 15-minute setup call
-            </a>
-        </div>
-    );
+"use client";
+
+import Button from "@/components/UI/Button";
+
+interface CtaButtonProps {
+  href?: string;
+  variant?: "primary" | "outline";
+  children?: React.ReactNode;
 }
+
+const DEFAULT_PRIMARY = { href: "#signup", label: "Start free" };
+const DEFAULT_SECONDARY = { href: "#book-call", label: "Book a 15-minute setup call" };
+
+const CtaButton = (props: CtaButtonProps) => {
+  const { href, variant = "primary", children } = props;
+
+  if (href != null) {
+    return (
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        <Button href={href} variant={variant} className="">
+          {children}
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <Button href={DEFAULT_PRIMARY.href} variant="primary">
+        {DEFAULT_PRIMARY.label}
+      </Button>
+      <Button href={DEFAULT_SECONDARY.href} variant="outline">
+        {DEFAULT_SECONDARY.label}
+      </Button>
+    </div>
+  );
+};
 
 export default CtaButton;

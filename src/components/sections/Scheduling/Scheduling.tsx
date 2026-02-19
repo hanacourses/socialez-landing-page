@@ -4,62 +4,53 @@ import Image from "next/image";
 import { SECTION, CARD_1, CARD_2, CARD_3 } from "./constants";
 
 const CheckIcon = () => (
-  <svg
-    className="h-5 w-5 flex-shrink-0 text-primary"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    aria-hidden="true"
+  <span
+    className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-primary text-white"
+    aria-hidden
   >
-    <path
+    <svg
+      className="h-3 w-3"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2.5}
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={2}
-      d="M5 13l4 4L19 7"
-    />
-  </svg>
+    >
+      <path d="M5 13l4 4L19 7" />
+    </svg>
+  </span>
 );
 
 const ScheduleCard = () => (
-  <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] md:flex-row md:items-center md:gap-8 lg:p-8">
+  <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-card md:flex-row md:items-center md:gap-8 lg:p-8">
     <div className="flex-1">
       <h3 className="text-xl font-bold text-gray-900 md:text-2xl">{CARD_1.title}</h3>
       <p className="mt-2 text-base text-gray-600">{CARD_1.description}</p>
-      <ul className="mt-4 space-y-3">
+      <ul className="mt-4 space-y-4" role="list">
         {CARD_1.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-3">
+          <li key={feature} className="flex items-center gap-3">
             <CheckIcon />
             <span className="text-sm text-gray-700 md:text-base">{feature}</span>
           </li>
         ))}
       </ul>
     </div>
-    <div className="flex flex-1 items-center justify-center rounded-xl bg-gray-100 p-8 md:min-h-[300px]">
-      <div className="text-center">
-        <div className="mx-auto mb-4 h-24 w-24 rounded-lg bg-primary/20 flex items-center justify-center">
-          <svg
-            className="h-12 w-12 text-primary"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
-        </div>
-        <p className="text-sm text-gray-500">Schedule Preview</p>
-        <p className="mt-1 text-xs text-gray-400">Dummy image placeholder</p>
-      </div>
+    <div className="flex flex-1 items-center justify-center overflow-hidden rounded-xl bg-gray-100 p-4 md:min-h-[300px]">
+      <Image
+        src="/Schedule_posts.gif"
+        alt="Schedule posts preview"
+        width={800}
+        height={600}
+        className="w-full h-auto object-contain rounded-lg"
+        unoptimized
+      />
     </div>
   </div>
 );
 
 const CalendarCard = () => (
-  <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] lg:p-8">
+  <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-card lg:p-8">
     <div className="">
       <h3 className="text-xl font-bold text-gray-900 md:text-2xl">{CARD_2.title}</h3>
       <p className="mt-2 text-base text-gray-600">{CARD_2.description}</p>
@@ -77,7 +68,7 @@ const CalendarCard = () => (
 );
 
 const RescheduleCard = () => (
-  <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-[0_4px_14px_rgba(0,0,0,0.06)] lg:p-8">
+  <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-card lg:p-8">
     <div className="">
       <h3 className="text-xl font-bold text-gray-900 md:text-2xl">{CARD_3.title}</h3>
       <p className="mt-2 text-base text-gray-600">{CARD_3.description}</p>
