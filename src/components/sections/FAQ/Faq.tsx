@@ -73,7 +73,7 @@ export default function Faq() {
                     <div className="max-w-xl">
                         <span
                             id="faq-heading"
-                            className="inline-flex rounded-full bg-[#9886FE] px-5 py-2 text-sm text-white shadow-sm"
+                            className="inline-flex rounded-full bg-[#0172F4] px-5 py-2 text-sm text-white shadow-sm"
                         >
                             FAQs
                         </span>
@@ -111,7 +111,7 @@ export default function Faq() {
                                             <span
                                                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${isOpen
                                                     ? "bg-[#1C105A] text-white"
-                                                    : "bg-[#9886FE] text-white"
+                                                    : "bg-[#0172F4] text-white"
                                                     } ${isOpen ? "rotate-180" : ""}`}
                                                 aria-hidden
                                             >
