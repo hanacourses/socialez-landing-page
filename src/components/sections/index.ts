@@ -8,3 +8,4 @@ export { default as FooterCta } from "./FooterCTA/FooterCta";
 export { default as Faq } from "./FAQ/Faq";
 export { default as StartedInMins } from "./StartedInMins";
 export { default as PlanAndPricing } from "./PlanandPricing/PlanAndPricing";
+export { default as WhoItFor } from "./WhoItFor";

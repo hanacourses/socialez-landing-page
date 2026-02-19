@@ -65,7 +65,7 @@ export default function Footer() {
         <div className="w-full flex justify-between items-start gap-8">
           {/* Column 1: Logo, description, social */}
           <div className="w-full flex flex-col gap-4 justify-start items-center">
-            <Logo />
+            <Logo height={12} />
             <p className="max-w-md text-center text-md leading-relaxed text-gray-700">
               AI-powered social media management for creating, scheduling,
               tracking, and engaging — all from one place.
@@ -77,7 +77,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-xl text-gray-700 transition-colors hover:bg-gray-200 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                   aria-label={label}
                 >
                   <svg

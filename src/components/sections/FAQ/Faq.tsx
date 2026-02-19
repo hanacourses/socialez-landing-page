@@ -67,7 +67,7 @@ export default function Faq() {
             className="w-full  mx-auto bg-white flex justify-center items-center"
             aria-labelledby="faq-heading"
         >
-            <div className="bg-linear-to-b from-[#0172F421] via-[#0172F421] to-[white] px-4 sm:px-18 md:py-24 max-w-7xl rounded-[50px]"
+            <div className="bg-linear-to-b from-[#F3FAFF] via-[#F3FAFF] to-[white] px-4 sm:px-18 md:py-24 max-w-7xl rounded-[50px]"
             >
                 <div className="mx-auto flex max-w-6xl flex-col gap-12 md:grid md:grid-cols-2 md:items-start">
                     {/* Left column: heading and copy */}
