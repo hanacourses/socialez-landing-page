@@ -64,9 +64,9 @@ export default function Footer() {
       <div className="w-full py-12 md:py-16 max-w-7xl mx-auto">
         <div className="w-full flex justify-between items-start gap-8">
           {/* Column 1: Logo, description, social */}
-          <div className="w-full flex flex-col gap-4 justify-start items-start">
+          <div className="w-full flex flex-col gap-4 justify-start items-center">
             <Logo height={12} />
-            <p className="max-w-sm text-md leading-relaxed text-gray-700">
+            <p className="max-w-md text-center text-md leading-relaxed text-gray-700">
               AI-powered social media management for creating, scheduling,
               tracking, and engaging — all from one place.
             </p>
@@ -77,7 +77,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-xl text-gray-700 transition-colors hover:bg-gray-200 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                   aria-label={label}
                 >
                   <svg
@@ -94,7 +94,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Sections */}
-          <div className="w-full">
+          {/* <div className="w-full">
             <h3 className="mb-4 text-lg font-bold text-gray-900">
               Sections
             </h3>
@@ -110,10 +110,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 3: Features */}
-          <div className="w-1/2">
+          {/* <div className="w-1/2">
             <h3 className="mb-4 text-lg font-bold text-gray-900">
               Features
             </h3>
@@ -129,10 +129,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
 
-        <div className="mt-12 border-t border-gray-200 pt-8 md:mt-16">
+        <div className="mt-12 flex justify-center items-center border-t border-gray-200 pt-8 md:mt-16">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} SocialEZ All Rights Reserved
           </p>

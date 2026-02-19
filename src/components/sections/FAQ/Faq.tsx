@@ -67,14 +67,14 @@ export default function Faq() {
             className="w-full  mx-auto bg-white flex justify-center items-center"
             aria-labelledby="faq-heading"
         >
-            <div className="bg-linear-to-b from-[#0172F421] via-[#0172F421] to-[white] px-4 sm:px-18 md:py-24 max-w-7xl rounded-[50px]"
+            <div className="bg-linear-to-b from-[#F3FAFF] via-[#F3FAFF] to-[white] px-4 sm:px-18 md:py-24 max-w-7xl rounded-[50px]"
             >
                 <div className="mx-auto flex max-w-6xl flex-col gap-12 md:grid md:grid-cols-2 md:items-start">
                     {/* Left column: heading and copy */}
                     <div className="max-w-xl">
                         <span
                             id="faq-heading"
-                            className="inline-flex rounded-full bg-[#9886FE] px-5 py-2 text-sm text-white shadow-sm"
+                            className="inline-flex rounded-full bg-[#0172F4] px-5 py-2 text-sm text-white shadow-sm"
                         >
                             FAQs
                         </span>
@@ -112,7 +112,7 @@ export default function Faq() {
                                             <span
                                                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${isOpen
                                                     ? "bg-[#1C105A] text-white"
-                                                    : "bg-[#9886FE] text-white"
+                                                    : "bg-[#0172F4] text-white"
                                                     } ${isOpen ? "rotate-180" : ""}`}
                                                 aria-hidden
                                             >
