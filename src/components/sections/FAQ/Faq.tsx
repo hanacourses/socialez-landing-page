@@ -64,7 +64,7 @@ export default function Faq() {
 
     return (
         <section
-            id="plans"
+            id="faq"
             className="w-full  mx-auto bg-white flex justify-center items-center"
             aria-labelledby="faq-heading"
         >

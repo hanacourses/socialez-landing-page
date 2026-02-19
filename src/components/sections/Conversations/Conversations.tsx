@@ -42,8 +42,8 @@ export const Conversations = () => {
 
           {/* Right Column - Inbox Card */}
           <div className="flex-1">
-            <div className="w-full">
-              <img src="/conversations.png" alt="Conversations" className="w-full h-full object-cover" />
+            <div className="w-full flex items-center justify-end">
+              <img src="/Notification.gif" alt="Conversations" className="w-[530px] h-[362px] object-cover rounded-3xl" />
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { PLAN_AND_PRICING } from "@/constant/planAndPricing";
 import CardBase from "./CardBase";
-import Link from "next/link";
 
 const PlanAndPricing = () => {
     const ProcessIcon = () => (
@@ -9,7 +8,7 @@ const PlanAndPricing = () => {
             </svg>
         );
     return (
-        <div className="w-full bg-white py-12 flex flex-col justify-center items-center gap-2">
+        <div id="plans" className="w-full bg-white py-12 flex flex-col justify-center items-center gap-2">
             <span className="text-sm text-slate-900 font-medium bg-yellow text-center p-2 px-4 rounded-full w-fit mx-auto">Pricing</span>
             <h2 className="text-4xl font-bold tracking-tight text-black text-center py-2.5 sm:text-5xl">Start small. Grow easily.</h2>
             <div className="w-full max-w-7xl mx-auto flex justify-center items-center gap-2 flex-col bg-surface p-8 rounded-3xl">
@@ -20,7 +19,16 @@ const PlanAndPricing = () => {
                         )
                     })}
                 </div>
-                <Link href="/pricing" className="text-base font-medium text-primary flex justify-center items-center gap-2 pt-6">Book a 15-minute setup call <ProcessIcon /></Link>
+                <button
+                  type="button"
+                  className="text-base font-medium text-primary flex justify-center items-center gap-2 pt-6 transition-colors hover:text-primary/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-lg px-2 py-1"
+                  data-cal-link="bhaskar-socialez/setup-call"
+                  data-cal-namespace="setup-call"
+                  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                  aria-label="Book a 15-minute setup call"
+                >
+                  Book a 15-minute setup call <ProcessIcon />
+                </button>
             </div>
         </div>
     );
