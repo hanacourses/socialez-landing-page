@@ -9,7 +9,6 @@ export const CARD_1 = {
   title: "Create your SocialEZ account",
   description:
     "Sign up in a minute and access your SocialEZ dashboard to get started.",
-  signupLabel: "Signup",
 } as const;
 
 export const CARD_2 = {
@@ -22,21 +21,10 @@ export const CARD_3 = {
   title: "See what performs best",
   description:
     "Track results across platforms, understand what's working, and improve your next posts.",
-  chartTitle: "Channel Statistics",
 } as const;
 
-export const SOCIAL_PLATFORMS = [
-  { name: "Facebook", color: "bg-[#1877F2]" },
-  { name: "Instagram", color: "bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF]" },
-  { name: "Pinterest", color: "bg-[#E60023]" },
-  { name: "LinkedIn", color: "bg-[#0A66C2]" },
-  { name: "X", color: "bg-gray-900" },
-  { name: "YouTube", color: "bg-[#FF0000]" },
-] as const;
+/** Step labels image (Step One, Step Two, Step Three) in public folder */
+export const STEP_LABELS_IMAGE = ["/Step1.png", "/Step2.png", "/Step3.png"] as const;
 
-/** Image assets in public folder for the section */
-export const SECTION_IMAGES = {
-  connectCard: "/connect_card.png",
-  channelStatistics: "/channel_statistics.png",
-  stepOneCard: "/step_one_card.png",
-} as const;
+/** Step card images in public folder */
+export const STEP_IMAGES = ["/Step_One_Card_Content1.png", "/Step_One_Card_Content2.png", "/Channel_Statistics.png"] as const;

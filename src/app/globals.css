@@ -3,11 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Global brand colors */
+  --color-primary: #0172F4;
+  --color-cyan: #7CE1FF;
+  --color-yellow: #FFD86F;
+  --color-ink: #120A0B;
+  --color-mint: #C9FF85;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--color-primary);
+  --color-cyan: var(--color-cyan);
+  --color-yellow: var(--color-yellow);
+  --color-ink: var(--color-ink);
+  --color-mint: var(--color-mint);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -19,10 +30,19 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 0;
 }
 
 /* Landing background: bg.png as pattern, light blue base, gradient in lower area */

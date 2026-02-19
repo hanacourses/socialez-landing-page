@@ -13,16 +13,18 @@ const HERO = {
 export const Hero = () => {
   return (
     <section
-      className="relative min-h-[90vh] overflow-hidden"
+      id="hero"
+      className="relative min-h-[85vh] overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(to bottom, #0172F440 0%, #FFFFFF 100%), url(/bg.png)",
+        backgroundSize: "100% 100%, cover",
+        backgroundPosition: "0 0, center",
+        backgroundRepeat: "no-repeat, no-repeat",
+      }}
       aria-labelledby="hero-heading"
     >
-      {/* Lower-area gradient overlay: grid shows at top, soft gradient behind hero */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-sky-100/40 to-sky-200/80"
-        aria-hidden
-      />
-
-      <div className="relative mx-auto flex max-w-5xl flex-col items-center px-4 pt-16 pb-8 text-center sm:px-6 md:pt-24">
+      <div className="relative mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-16 pb-8 text-center sm:px-6 md:pt-36">
         <h1
           id="hero-heading"
           className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
@@ -49,8 +51,8 @@ export const Hero = () => {
         </div>
 
         {/* Dashboard preview - floats below hero with shadow */}
-        <div className="relative -mb-12 mt-12 w-full max-w-5xl px-2 pb-4 sm:px-4">
-          <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5">
+        <div className="relative mt-12 w-full max-w-5xl px-2 sm:px-4">
+          <div className="overflow-hidden rounded-2xl shadow-1xl ring-1 ring-black/5">
             <img
               src="/dashboardImg2.png"
               alt="SocialEZ dashboard preview"
@@ -61,6 +63,8 @@ export const Hero = () => {
               decoding="async"
             />
           </div>
+          
+          
         </div>
       </div>
     </section>

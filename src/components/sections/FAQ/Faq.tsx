@@ -63,6 +63,7 @@ export default function Faq() {
 
     return (
         <section
+            id="plans"
             className="w-full  mx-auto bg-white flex justify-center items-center"
             aria-labelledby="faq-heading"
         >

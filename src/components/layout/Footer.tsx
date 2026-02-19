@@ -9,7 +9,7 @@ const SECTIONS_LINKS = [
   { label: "Dashboard", href: "#dashboard" },
   { label: "Scheduling", href: "#scheduling" },
   { label: "Analytics", href: "#analytics" },
-  { label: "Engagement", href: "#engagement" },
+  { label: "Conversations", href: "#conversations" },
   { label: "Pricing", href: "#pricing" },
 ] as const;
 
@@ -60,12 +60,12 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 w-full justify-center items-center flex ">
+    <footer id="contacts" className="bg-white border-t border-gray-200 w-full justify-center items-center flex ">
       <div className="w-full py-12 md:py-16 max-w-7xl mx-auto">
         <div className="w-full flex justify-between items-start gap-8">
           {/* Column 1: Logo, description, social */}
           <div className="w-full flex flex-col gap-4 justify-start items-center">
-            <Logo height={12} />
+            <Logo />
             <p className="max-w-md text-center text-md leading-relaxed text-gray-700">
               AI-powered social media management for creating, scheduling,
               tracking, and engaging — all from one place.
