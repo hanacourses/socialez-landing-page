@@ -4,10 +4,10 @@ import Link from "next/link";
 
 const PlanAndPricing = () => {
     const ProcessIcon = () => (
-            <svg className="h-6 w-6 text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <path d="M8.25159 12H15.7516M15.7516 12L12.7516 9M15.7516 12L12.7516 15M3.00159 12C3.00159 7.029 7.03059 3 12.0016 3C16.9726 3 21.0016 7.029 21.0016 12C21.0016 16.971 16.9726 21 12.0016 21C7.03059 21 3.00159 16.971 3.00159 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-        );
+        <svg className="h-6 w-6 text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <path d="M8.25159 12H15.7516M15.7516 12L12.7516 9M15.7516 12L12.7516 15M3.00159 12C3.00159 7.029 7.03059 3 12.0016 3C16.9726 3 21.0016 7.029 21.0016 12C21.0016 16.971 16.9726 21 12.0016 21C7.03059 21 3.00159 16.971 3.00159 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+    );
     return (
         <div className="w-full bg-white py-12 flex flex-col justify-center items-center gap-2">
             <span className="text-sm text-slate-900 font-medium bg-yellow text-center p-2 px-4 rounded-full w-fit mx-auto">Pricing</span>
@@ -20,7 +20,7 @@ const PlanAndPricing = () => {
                         )
                     })}
                 </div>
-                <Link href="/pricing" className="text-md font-medium text-primary flex justify-center items-center gap-2 pt-6">Book a 15-minute setup call <ProcessIcon /></Link>
+                <Link href="/pricing" className="text-md font-medium text-primary flex justify-center items-center gap-2 pt-6 group">Book a 15-minute setup call <span className="group-hover:translate-x-1 transition-all duration-300"><ProcessIcon /></span></Link>
             </div>
         </div>
     );
