@@ -38,26 +38,27 @@ export const FeaturesTabs = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Wheel/touch: when section is in view, scroll changes tabs (no pin — no extra space). After last tab, page scrolls.
+  // Wheel/touch: when section is in view, block page scroll until user has passed through all tabs (one per interval); then allow next section.
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-    // Only capture scroll when the section is fully (or nearly fully) visible on screen
-    const isSectionFullyVisible = () => {
+    // Capture scroll when section occupies most of the viewport so we can force tab sequence before next section
+    const isSectionInView = () => {
       const rect = section.getBoundingClientRect();
       const vh = window.innerHeight;
-      const margin = Math.min(80, vh * 0.08);
-      return rect.top <= margin && rect.bottom >= vh - margin;
+      const overlap = Math.min(rect.bottom, vh) - Math.max(rect.top, 0);
+      return overlap >= vh * 0.6;
     };
 
     const onWheel = (e: WheelEvent) => {
-      if (!isSectionFullyVisible()) return;
+      if (!isSectionInView()) return;
       const idx = activeIndexRef.current;
       const now = Date.now();
       const canChange = now - lastScrollTabChangeAt.current >= TAB_CHANGE_INTERVAL_MS;
 
       if (e.deltaY > 0) {
+        // Scroll down: block page scroll until we're on the last tab so user must pass through all tabs
         if (idx < TAB_COUNT - 1) {
           e.preventDefault();
           if (canChange) {
@@ -81,7 +82,7 @@ export const FeaturesTabs = () => {
     };
 
     const onTouchEnd = (e: TouchEvent) => {
-      if (!isSectionFullyVisible()) return;
+      if (!isSectionInView()) return;
       const now = Date.now();
       if (now - lastScrollTabChangeAt.current < TAB_CHANGE_INTERVAL_MS) return;
       const endY = e.changedTouches[0].clientY;
@@ -165,9 +166,9 @@ export const FeaturesTabs = () => {
       className="scroll-mt-20 min-h-screen bg-white"
       aria-labelledby="features-tabs-heading"
     >
-      {/* One viewport: sticky so content stays visible; wheel/touch switch tabs, page scrolls only after last tab */}
+      {/* Sticky: scroll down cycles through all tabs (blocked until last tab), then page scrolls to next section */}
       <div className="sticky top-0 z-10 flex min-h-screen flex-col justify-center px-12 py-16 sm:px-12 md:py-24 items-center">
-        <div className="p-8 border rounded-3xl  w-full">
+        <div className="p-8 border border-slate-100 rounded-3xl  w-full">
           {/* Header with entrance animation */}
           <div
             className={`max-w-2xl transition-all duration-700 ease-out ${hasEntered
@@ -255,7 +256,18 @@ export const FeaturesTabs = () => {
                     </p>
                   </div>
                   <div className="relative  shrink-0 overflow-hidden flex items-center object-cover justify-center bg-white p-6">
-                    <img className="w-full h-full object-top object-cover rounded-xl" src="./featureTabsbg.png" alt="" />
+
+                    <div className="w-full  h-[350px] rounded-3xl overflow-hidden relative">
+                      <div className="absolute w-3/4 h-3/4 rounded-t-2xl  bg-white/30 border-2 border-white bottom-0 left-1/2 -translate-x-1/2 p-4 overflow-hidden z-10">
+                        <div className="flex items-start justify-start gap-2 pb-2">{Array.from({ length: 3 }).map((_, index) => (
+                          <span key={index} className="w-3 h-3 rounded-full bg-white" ></span>
+                        ))}</div>
+                        <div className="bg-white w-full h-full rounded-t-2xl overflow-hidden ">
+                          {activeTab?.mediaUrl && <img className="w-full h-full object-top object-contain" src={activeTab?.mediaUrl} alt="" />}
+                        </div>
+                      </div>
+                      <img className="w-full h-full object-top object-cover opacity-50 scale-150" src="./featureTabsbg.png" alt="" />
+                    </div>
                     {/* <img
                       key={activeTab.id}
                       src={activeTab.mediaUrl}
