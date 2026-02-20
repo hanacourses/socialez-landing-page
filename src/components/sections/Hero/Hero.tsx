@@ -84,10 +84,11 @@ export const Hero = () => {
           "linear-gradient(to bottom, color-mix(in srgb, var(--color-primary) 25%, transparent) 0%, var(--background) 100%)",
       }}  
     >
-      {/* Background image - absolute layer */}
+      {/* Background image - absolute layer; subtle parallax via ScrollSmoother */}
       <div
         className="absolute inset-0 z-0 bg-contain"
         style={{ backgroundImage: "url(/bg.png)" }}
+        data-speed="0.6"
         aria-hidden
       />
       {/* Gradient overlay */}
