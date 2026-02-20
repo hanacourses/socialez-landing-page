@@ -8,6 +8,12 @@ interface ButtonProps {
   variant?: "primary" | "outline";
   href?: string;
   onClick?: () => void;
+  /** Cal.com: link slug (e.g. "username/event-type") */
+  dataCalLink?: string;
+  /** Cal.com: namespace matching init namespace */
+  dataCalNamespace?: string;
+  /** Cal.com: JSON config for layout etc. */
+  dataCalConfig?: string;
 }
 
 const BASE_CLASS =
@@ -28,9 +34,31 @@ const Button = (props: ButtonProps) => {
     variant = "primary",
     href,
     onClick = () => {},
+    dataCalLink,
+    dataCalNamespace,
+    dataCalConfig,
   } = props;
 
   const combinedBtnClass = `${BASE_CLASS} ${VARIANT_CLASS[variant]} ${btnClassName}`.trim();
+  const ariaLabel = typeof children === "string" ? children : content;
+
+  if (dataCalLink != null && dataCalNamespace != null) {
+    return (
+      <div className={className}>
+        <button
+          type="button"
+          className={combinedBtnClass}
+          onClick={onClick}
+          aria-label={ariaLabel}
+          data-cal-link={dataCalLink}
+          data-cal-namespace={dataCalNamespace}
+          data-cal-config={dataCalConfig}
+        >
+          {children ?? content}
+        </button>
+      </div>
+    );
+  }
 
   if (href) {
     return (
@@ -39,7 +67,7 @@ const Button = (props: ButtonProps) => {
           href={href}
           className={combinedBtnClass}
           onClick={onClick}
-          aria-label={typeof children === "string" ? children : content}
+          aria-label={ariaLabel}
         >
           {children ?? content}
         </a>
@@ -53,7 +81,7 @@ const Button = (props: ButtonProps) => {
         type="button"
         className={combinedBtnClass}
         onClick={onClick}
-        aria-label={typeof children === "string" ? children : content}
+        aria-label={ariaLabel}
       >
         {children ?? content}
       </button>

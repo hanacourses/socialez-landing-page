@@ -64,7 +64,7 @@ export default function Faq() {
 
     return (
         <section
-            id="plans"
+            id="faq"
             className="w-full  mx-auto bg-white flex justify-center items-center"
             aria-labelledby="faq-heading"
         >
@@ -81,7 +81,7 @@ export default function Faq() {
                             <br />
                             We&apos;re Glad You Asked.
                         </h2>
-                        <p className="mt-4 text-base text-slate-700 sm:text-md">
+                        <p className="mt-4 text-base text-slate-700 sm:text-base">
                             Simplify social planning, streamline collaboration, and boost
                             productivity for your team with SocialEZ.
                         </p>

@@ -151,6 +151,14 @@ export const FeaturesTabs = () => {
     [handleTabClick]
   );
 
+  const handleCalButtonKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      const button = e.currentTarget as HTMLButtonElement;
+      button.click();
+    }
+  }, []);
+
   return (
     <section
       ref={sectionRef}

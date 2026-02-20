@@ -29,7 +29,12 @@ const CtaButton = (props: CtaButtonProps) => {
       <Button href={DEFAULT_PRIMARY.href} variant="primary">
         {DEFAULT_PRIMARY.label}
       </Button>
-      <Button href={DEFAULT_SECONDARY.href} variant="outline">
+      <Button
+        variant="outline"
+        dataCalLink="bhaskar-socialez/setup-call"
+        dataCalNamespace="setup-call"
+        dataCalConfig='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+      >
         {DEFAULT_SECONDARY.label}
       </Button>
     </div>

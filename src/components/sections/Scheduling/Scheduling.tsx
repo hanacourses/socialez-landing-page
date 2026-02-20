@@ -5,7 +5,7 @@ import { SECTION, CARD_1, CARD_2, CARD_3 } from "./constants";
 
 const CheckIcon = () => (
   <span
-    className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-primary text-white"
+    className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-primary text-white"
     aria-hidden
   >
     <svg
@@ -25,13 +25,13 @@ const CheckIcon = () => (
 const ScheduleCard = () => (
   <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-card md:flex-row md:items-center md:gap-8 lg:p-8">
     <div className="flex-1">
-      <h3 className="text-xl font-bold text-gray-900 md:text-2xl">{CARD_1.title}</h3>
-      <p className="mt-2 text-base text-gray-600">{CARD_1.description}</p>
+      <h3 className="text-lg font-bold text-gray-900">{CARD_1.title}</h3>
+      <p className="mt-2 text-sm leading-snug text-gray-600">{CARD_1.description}</p>
       <ul className="mt-4 space-y-4" role="list">
         {CARD_1.features.map((feature) => (
           <li key={feature} className="flex items-center gap-3">
             <CheckIcon />
-            <span className="text-sm text-gray-700 md:text-base">{feature}</span>
+            <span className="text-sm text-gray-700">{feature}</span>
           </li>
         ))}
       </ul>
@@ -52,8 +52,8 @@ const ScheduleCard = () => (
 const CalendarCard = () => (
   <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-card lg:p-8">
     <div className="">
-      <h3 className="text-xl font-bold text-gray-900 md:text-2xl">{CARD_2.title}</h3>
-      <p className="mt-2 text-base text-gray-600">{CARD_2.description}</p>
+      <h3 className="text-lg font-bold text-gray-900">{CARD_2.title}</h3>
+      <p className="mt-2 text-sm leading-snug text-gray-600">{CARD_2.description}</p>
     </div>
     <div className="flex items-center justify-center overflow-hidden">
       <img
@@ -70,8 +70,8 @@ const CalendarCard = () => (
 const RescheduleCard = () => (
   <div className="flex flex-col gap-6 rounded-2xl border border-gray-200/80 bg-white p-6 shadow-card lg:p-8">
     <div className="">
-      <h3 className="text-xl font-bold text-gray-900 md:text-2xl">{CARD_3.title}</h3>
-      <p className="mt-2 text-base text-gray-600">{CARD_3.description}</p>
+      <h3 className="text-lg font-bold text-gray-900">{CARD_3.title}</h3>
+      <p className="mt-2 text-sm leading-snug text-gray-600">{CARD_3.description}</p>
     </div>
     <div className="flex items-center justify-center overflow-hidden">
       <Image
@@ -105,7 +105,7 @@ export const Scheduling = () => {
           </span>
           <h2
             id="scheduling-heading"
-            className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
           >
             {SECTION.title}
           </h2>

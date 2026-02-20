@@ -91,7 +91,7 @@ export const OneDashboard = () => {
           <SectionBadge variant="cyan">{SECTION.badge}</SectionBadge>
           <h2
             id="one-dashboard-heading"
-            className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
           >
             {SECTION.title}
           </h2>

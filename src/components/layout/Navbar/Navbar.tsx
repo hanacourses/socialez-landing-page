@@ -18,7 +18,6 @@ const useActiveNavLink = () => {
 
   useEffect(() => {
     setActiveHref(getActiveHref());
-
     const handleHashChange = () => setActiveHref(getActiveHref());
 
     const updateActiveFromScroll = () => {
