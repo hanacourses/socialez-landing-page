@@ -60,7 +60,7 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer id="contacts" className="bg-white border-t border-gray-200 w-full justify-center items-center flex ">
+    <footer id="contacts" className="bg-white border-t border-gray-200 w-full justify-center items-center flex px-4">
       <div className="w-full py-12 md:py-16 max-w-7xl mx-auto">
         <div className="w-full flex justify-between items-start gap-8">
           {/* Column 1: Logo, description, social */}

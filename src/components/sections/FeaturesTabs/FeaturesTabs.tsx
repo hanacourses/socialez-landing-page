@@ -167,7 +167,7 @@ export const FeaturesTabs = () => {
       aria-labelledby="features-tabs-heading"
     >
       {/* Sticky: scroll down cycles through all tabs (blocked until last tab), then page scrolls to next section */}
-      <div className="sticky top-0 z-10 flex min-h-screen flex-col justify-center px-12 py-16 sm:px-12 md:py-24 items-center">
+      <div className="sticky top-0 z-10 flex min-h-screen flex-col justify-center px-12 sm:px-12 items-center">
         <div className="p-8 border border-slate-100 rounded-3xl  w-full">
           {/* Header with entrance animation */}
           <div

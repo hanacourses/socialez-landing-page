@@ -26,11 +26,12 @@ const CtaButton = (props: CtaButtonProps) => {
 
   return (
     <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-      <Button href={DEFAULT_PRIMARY.href} variant="primary">
+      <Button href={DEFAULT_PRIMARY.href} className="w-full lg:w-auto" btnClassName="w-full lg:w-auto max-w-[250px]!" variant="primary">
         {DEFAULT_PRIMARY.label}
       </Button>
       <Button
         variant="outline"
+        btnClassName="border-none! font-semibold! text-black! cursor-pointer!"
         dataCalLink="bhaskar-socialez/setup-call"
         dataCalNamespace="setup-call"
         dataCalConfig='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
