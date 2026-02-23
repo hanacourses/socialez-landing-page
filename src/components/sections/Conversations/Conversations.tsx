@@ -43,7 +43,11 @@ export const Conversations = () => {
           {/* Right Column - Inbox Card */}
           <div className="flex-1">
             <div className="w-full flex items-center justify-end">
-              <img src="/Notification.gif" alt="Conversations" className="w-[530px] h-[362px] object-cover rounded-3xl" />
+              <img
+                src="/Notification.gif"
+                alt="Conversations"
+                className="w-full max-w-[530px] h-auto aspect-[530/362] object-cover rounded-xl md:rounded-3xl"
+              />
             </div>
           </div>
         </div>

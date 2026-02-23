@@ -27,7 +27,7 @@ export const CARD_3 = {
 export const STEP_LABELS_IMAGE = ["/Step1.png", "/Step2.png", "/Step3.png"] as const;
 
 /** Step card images in public folder */
-export const STEP_IMAGES = ["/Step_One_Card_Content1.png", "/Step_One_Card_Content2.png", "/Channel_Statistics.png"] as const;
+export const STEP_IMAGES = ["/Step_One_Card_Content1.png", "/Step_One_Card_Content2.png", "/statistics.gif"] as const;
 
 /** Social platforms for the connect-accounts slider (name, bg, ariaLabel, icon path in public) */
 export const SOCIAL_PLATFORMS = [

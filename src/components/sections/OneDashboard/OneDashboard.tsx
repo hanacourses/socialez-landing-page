@@ -1,8 +1,16 @@
 "use client";
 
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionBadge from "@/components/UI/SectionBadge";
 import { SECTION, CARD_1, CARD_2, CARD_3, STEP_IMAGES, STEP_LABELS_IMAGE } from "./constants";
 import { SocialIconsSlider } from "./SocialIconsSlider";
+
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const CARDS = [
   { title: CARD_1.title, description: CARD_1.description, image: STEP_IMAGES[0], alt: "Create your SocialEZ account" },
@@ -39,6 +47,7 @@ const CardBase = ({
   description,
   stepLabelAtBottom,
   imageOverlay,
+  imageClassName = "",
 }: {
   stepLabelSrc: string;
   stepLabelAlt: string;
@@ -48,6 +57,7 @@ const CardBase = ({
   description: string;
   stepLabelAtBottom?: boolean;
   imageOverlay?: React.ReactNode;
+  imageClassName?: string;
 }) => (
   <article className="flex flex-col items-center gap-5">
     {!stepLabelAtBottom && (
@@ -58,7 +68,7 @@ const CardBase = ({
         <img
           src={imageSrc}
           alt={imageAlt}
-          className="h-auto w-full object-cover object-top"
+          className={`h-auto w-full object-cover ${imageClassName ? "object-center" : "object-top"} ${imageClassName}`.trim()}
           loading="lazy"
           decoding="async"
         />
@@ -80,6 +90,60 @@ const CardBase = ({
 );
 
 export const OneDashboard = () => {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const wordsRef = useRef<HTMLSpanElement[]>([]);
+
+  useEffect(() => {
+    const heading = headingRef.current;
+    if (!heading) return;
+
+    const words = wordsRef.current.filter(Boolean);
+    if (words.length === 0) return;
+
+    // Set initial state
+    gsap.set(words, {
+      opacity: 0,
+      y: 80,
+      rotationX: -90,
+    });
+
+    // Create timeline with ScrollTrigger
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heading,
+        start: "top 85%",
+        end: "bottom 15%",
+        toggleActions: "play none none none",
+        once: true,
+      },
+    });
+
+    // Animate words on scroll
+    tl.to(words, {
+      opacity: 1,
+      y: 0,
+      rotationX: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      stagger: {
+        amount: 0.7,
+        from: "start",
+      },
+    });
+
+    return () => {
+      tl.kill();
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.vars.trigger === heading) {
+          trigger.kill();
+        }
+      });
+    };
+  }, []);
+
+  // Split heading into words
+  const words = SECTION.title.split(" ");
+
   return (
     <section
       id="one-dashboard"
@@ -90,10 +154,23 @@ export const OneDashboard = () => {
         <div className="text-center">
           <SectionBadge variant="cyan">{SECTION.badge}</SectionBadge>
           <h2
+            ref={headingRef}
             id="one-dashboard-heading"
             className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+            style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
           >
-            {SECTION.title}
+            {words.map((word, index) => (
+              <span
+                key={index}
+                ref={(el) => {
+                  if (el) wordsRef.current[index] = el;
+                }}
+                className="inline-block"
+              >
+                {word}
+                {index < words.length - 1 && "\u00A0"}
+              </span>
+            ))}
           </h2>
           <p className="mx-auto max-w-lg mt-3 text-base text-gray-600">
             {SECTION.subtitle}
@@ -112,6 +189,7 @@ export const OneDashboard = () => {
               description={card.description}
               stepLabelAtBottom={index === 1}
               imageOverlay={index === 1 ? <SocialIconsSlider /> : undefined}
+              imageClassName={index === 2 ? "scale-125" : undefined}
             />
           ))}
         </div>
