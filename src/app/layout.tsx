@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen w-full min-w-0 antialiased bg-landing overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen w-full min-w-0 antialiased bg-landing overflow-x-hidden snap-y snap-proximity`}
       >
         <Script
           id="cal-com-script"

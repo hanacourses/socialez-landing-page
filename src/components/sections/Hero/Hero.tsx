@@ -1,14 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef, useEffect, useState } from "react";
 import Button from "@/components/UI/Button";
-
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const HERO = {
   heading: "Social media Made easy",
@@ -21,54 +14,20 @@ const HERO = {
 
 export const Hero = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const wordsRef = useRef<HTMLSpanElement[]>([]);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const heading = headingRef.current;
     if (!heading) return;
 
-    const words = wordsRef.current.filter(Boolean);
-    if (words.length === 0) return;
-
-    // Set initial state
-    gsap.set(words, {
-      opacity: 0,
-      y: 80,
-      rotationX: -90,
-    });
-
-    // Create timeline with ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heading,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none none",
-        once: true,
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setHasAnimated(true);
       },
-    });
-
-    // Animate words on scroll
-    tl.to(words, {
-      opacity: 1,
-      y: 0,
-      rotationX: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      stagger: {
-        amount: 0.7,
-        from: "start",
-      },
-    });
-
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === heading) {
-          trigger.kill();
-        }
-      });
-    };
+      { threshold: 0.15, rootMargin: "0px" }
+    );
+    observer.observe(heading);
+    return () => observer.disconnect();
   }, []);
 
   // Split heading into words
@@ -97,7 +56,7 @@ export const Hero = () => {
         
         aria-hidden
       />
-      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-16 pb-8 text-center sm:px-6 md:pt-36"
+      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-24 pb-8 text-center sm:px-6 md:pt-36"
       
       >
         <h1
@@ -109,10 +68,13 @@ export const Hero = () => {
           {words.map((word, index) => (
             <span
               key={index}
-              ref={(el) => {
-                if (el) wordsRef.current[index] = el;
+              className={`inline-block transition-all duration-700 ease-out ${
+                hasAnimated ? "opacity-100" : "translate-y-20 opacity-0"
+              }`}
+              style={{
+                transitionDelay: hasAnimated ? `${index * 0.12}s` : "0ms",
+                transform: hasAnimated ? "translateY(0)" : "translateY(80px)",
               }}
-              className="inline-block"
             >
               {word}
               {index < words.length - 1 && "\u00A0"}
@@ -123,8 +85,8 @@ export const Hero = () => {
           {HERO.description}
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <Button href={HERO.ctaPrimaryHref} variant="primary">
+        <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-4">
+          <Button href={HERO.ctaPrimaryHref} variant="primary" btnClassName="w-full sm:w-auto">
             {HERO.ctaPrimary}
           </Button>
           <Button
@@ -132,6 +94,7 @@ export const Hero = () => {
             dataCalLink="bhaskar-socialez/setup-call"
             dataCalNamespace="setup-call"
             dataCalConfig='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            btnClassName="w-full sm:w-auto"
           >
             {HERO.ctaSecondary}
           </Button>

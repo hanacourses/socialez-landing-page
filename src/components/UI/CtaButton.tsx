@@ -14,10 +14,13 @@ const DEFAULT_SECONDARY = { href: "#book-call", label: "Book a 15-minute setup c
 const CtaButton = (props: CtaButtonProps) => {
   const { href, variant = "primary", children } = props;
 
+  const fullWidthMobile = "w-full sm:w-auto";
+  const containerClass = "flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-4";
+
   if (href != null) {
     return (
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <Button href={href} variant={variant} className="">
+      <div className={containerClass}>
+        <Button href={href} variant={variant} btnClassName={fullWidthMobile}>
           {children}
         </Button>
       </div>
@@ -25,8 +28,8 @@ const CtaButton = (props: CtaButtonProps) => {
   }
 
   return (
-    <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-      <Button href={DEFAULT_PRIMARY.href} variant="primary">
+    <div className={`mt-8 ${containerClass}`}>
+      <Button href={DEFAULT_PRIMARY.href} variant="primary" btnClassName={fullWidthMobile}>
         {DEFAULT_PRIMARY.label}
       </Button>
       <Button
@@ -34,6 +37,7 @@ const CtaButton = (props: CtaButtonProps) => {
         dataCalLink="bhaskar-socialez/setup-call"
         dataCalNamespace="setup-call"
         dataCalConfig='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+        btnClassName={fullWidthMobile}
       >
         {DEFAULT_SECONDARY.label}
       </Button>

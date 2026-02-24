@@ -1,16 +1,9 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef, useEffect, useState } from "react";
 import SectionBadge from "@/components/UI/SectionBadge";
 import { SECTION, CARD_1, CARD_2, CARD_3, STEP_IMAGES, STEP_LABELS_IMAGE } from "./constants";
 import { SocialIconsSlider } from "./SocialIconsSlider";
-
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const CARDS = [
   { title: CARD_1.title, description: CARD_1.description, image: STEP_IMAGES[0], alt: "Create your SocialEZ account" },
@@ -73,7 +66,7 @@ const CardBase = ({
           decoding="async"
         />
         {imageOverlay != null && (
-          <div className="absolute bottom-12 left-0 right-0 z-10 mx-auto w-[350px] min-h-[88px] overflow-hidden">
+          <div className="absolute md:bottom-12 bottom-8 left-0 right-0 z-10 mx-auto md:w-[350px] w-[250px] min-h-[88px] overflow-hidden">
             {imageOverlay}
           </div>
         )}
@@ -91,54 +84,20 @@ const CardBase = ({
 
 export const OneDashboard = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const wordsRef = useRef<HTMLSpanElement[]>([]);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const heading = headingRef.current;
     if (!heading) return;
 
-    const words = wordsRef.current.filter(Boolean);
-    if (words.length === 0) return;
-
-    // Set initial state
-    gsap.set(words, {
-      opacity: 0,
-      y: 80,
-      rotationX: -90,
-    });
-
-    // Create timeline with ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heading,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none none",
-        once: true,
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setHasAnimated(true);
       },
-    });
-
-    // Animate words on scroll
-    tl.to(words, {
-      opacity: 1,
-      y: 0,
-      rotationX: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      stagger: {
-        amount: 0.7,
-        from: "start",
-      },
-    });
-
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === heading) {
-          trigger.kill();
-        }
-      });
-    };
+      { threshold: 0.15, rootMargin: "0px" }
+    );
+    observer.observe(heading);
+    return () => observer.disconnect();
   }, []);
 
   // Split heading into words
@@ -162,10 +121,13 @@ export const OneDashboard = () => {
             {words.map((word, index) => (
               <span
                 key={index}
-                ref={(el) => {
-                  if (el) wordsRef.current[index] = el;
+                className={`inline-block transition-all duration-700 ease-out ${
+                  hasAnimated ? "opacity-100" : "translate-y-20 opacity-0"
+                }`}
+                style={{
+                  transitionDelay: hasAnimated ? `${index * 0.12}s` : "0ms",
+                  transform: hasAnimated ? "translateY(0)" : "translateY(80px)",
                 }}
-                className="inline-block"
               >
                 {word}
                 {index < words.length - 1 && "\u00A0"}
