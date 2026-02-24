@@ -29,7 +29,12 @@ const CtaButton = (props: CtaButtonProps) => {
 
   return (
     <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-      <Button href={DEFAULT_PRIMARY.href} className="w-full lg:w-auto" btnClassName="w-full lg:w-auto max-w-[250px]!" variant="primary">
+      <Button
+        href={DEFAULT_PRIMARY.href}
+        className="w-full lg:w-auto"
+        btnClassName="w-full lg:w-auto max-w-[250px]! font-semibold!"
+        variant="primary"
+      >
         {DEFAULT_PRIMARY.label}
       </Button>
       <Button
