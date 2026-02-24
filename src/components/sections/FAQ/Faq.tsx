@@ -76,7 +76,7 @@ export default function Faq() {
                         <SectionBadge variant="primary" className="shadow-sm" id="faq-heading">
                             FAQs
                         </SectionBadge>
-                        <h2 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                        <h2 className="mt-6 text-[24px] font-bold tracking-tight text-slate-900 md:text-[32px]">
                             Questions?
                             <br />
                             We&apos;re Glad You Asked.

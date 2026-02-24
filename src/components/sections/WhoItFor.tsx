@@ -6,7 +6,7 @@ const WhoItFor = () => {
         <div className="w-full flex justify-center items-center flex-col bg-white py-12 px-4">
             <SectionBadge variant="cyan" className="my-4 mx-auto">Who It’s For</SectionBadge>
             <div className="w-full max-w-7xl flex flex-col justify-center items-center gap-4">
-                <h2 className="text-4xl font-bold tracking-tight text-black sm:text-5xl">Built for creators, businesses, and teams</h2>
+                <h2 className="text-[24px] font-bold tracking-tight text-black md:text-[32px]">Built for creators, businesses, and teams</h2>
                 <p className="text-base text-gray-500 max-w-2xl text-center">Whether you're building your brand or managing multiple accounts, SocialEZ keeps everything organized.</p>
                 <div className="w-full flex justify-center items-center gap-8 py-4 lg:flex-row flex-col">
                     {WHO_IT_FOR.map((item) => {

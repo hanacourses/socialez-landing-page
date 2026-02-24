@@ -31,8 +31,8 @@ const CardBase = (props: CardBaseProps) => {
         <div className={`${className} w-full h-full min-h-[650px] bg-white p-8 rounded-2xl relative overflow-hidden ${isMostPopular ? "border-2 border-primary" : ""}`}>
             {isMostPopular && <span className="text-xs font-medium absolute top-0 right-0 bg-primary text-white px-4 py-2 rounded-bl-full">MOST POPULAR</span>}
             <div className="w-full flex justify-start items-start gap-2 flex-col">
-                <span className="text-4xl font-normal text-slate-900">{title}</span>
-                <h4 className="text-4xl font-bold text-slate-900">${price} <span className="text-sm font-normal text-slate-500">/ mo</span></h4>
+                <span className="text-2xl md:text-4xl font-normal text-slate-900">{title}</span>
+                <h4 className="text-2xl md:text-4xl font-bold text-slate-900">${price} <span className="text-xs md:text-sm font-normal text-slate-500">/ mo</span></h4>
                 <p className="text-base font-normal text-slate-800">{description}</p>
             </div>
             <Button className="py-6 w-full flex justify-center items-center" btnClassName="w-full shadow-lg" variant={buttonVariant || "primary"} onClick={buttonLink}>

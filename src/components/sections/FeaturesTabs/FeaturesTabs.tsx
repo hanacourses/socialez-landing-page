@@ -209,7 +209,7 @@ export const FeaturesTabs = () => {
             </span>
             <h2
               id="features-tabs-heading"
-              className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+              className="mt-4 text-[24px] font-bold tracking-tight text-gray-900 md:text-[32px]"
             >
               {FEATURES_SECTION.heading}
             </h2>

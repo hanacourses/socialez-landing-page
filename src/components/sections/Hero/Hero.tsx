@@ -51,7 +51,7 @@ export const Hero = () => {
         aria-hidden
       />
       <div className="absolute top-0 left-0 w-full h-24 bg-linear-to-b from-white/90 via-white/50 to-transparent z-1" aria-hidden />
-      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-24 pb-8 text-center sm:px-6 md:pt-36">
+      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-28 pb-8 text-center sm:px-6 md:pt-36">
         <h1
           ref={headingRef}
           id="hero-heading"

@@ -10,7 +10,7 @@ export default function FooterCta() {
                 <div className="md:px-6 px-4 md:py-12 py-8 text-center sm:px-10 sm:py-14 flex flex-col items-center justify-center gap-2">
                     <h2
                         id="footer-cta-heading"
-                        className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+                        className="text-[24px] font-bold tracking-tight text-gray-900 md:text-[32px]"
                     >
                         Start using SocialEZ today.
                     </h2>

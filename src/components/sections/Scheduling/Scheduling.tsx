@@ -105,7 +105,7 @@ export const Scheduling = () => {
           </span>
           <h2
             id="scheduling-heading"
-            className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+            className="mt-4 text-[24px] font-bold tracking-tight text-gray-900 md:text-[32px]"
           >
             {SECTION.title}
           </h2>

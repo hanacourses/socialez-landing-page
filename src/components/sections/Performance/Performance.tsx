@@ -75,7 +75,7 @@ export const Performance = () => {
           </span>
           <h2
             id="performance-heading"
-            className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+            className="mt-4 text-[24px] font-bold tracking-tight text-gray-900 md:text-[32px]"
           >
             {SECTION.title}
           </h2>
@@ -85,22 +85,18 @@ export const Performance = () => {
         </div>
 
         <div className="mt-12">
-          <div className="relative flex min-h-[600px] flex-col gap-8 overflow-hidden rounded-3xl border border-gray-200/80 p-4 shadow-card sm:p-6 md:min-h-[500px] lg:flex-row lg:items-start lg:gap-8 lg:p-8">
-            {/* Background image - absolute layer (same method as Hero) */}
-            <div
-              className="absolute inset-0 z-0 rounded-3xl bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: "url(/performance_Background_Image.png)" }}
-              aria-hidden
-            />
-            {/* Gradient overlay */}
-            <div
-              className="absolute inset-0 z-[1] rounded-3xl"
-              style={{
+          <div className="relative flex min-h-[600px] flex-col gap-8 overflow-hidden rounded-3xl border border-gray-200/80 p-4 shadow-card sm:p-6 md:min-h-[500px] lg:flex-row lg:items-start lg:gap-8 lg:p-8"  style={{
                 background:
                   "linear-gradient(to top, rgb(255 255 255 / 0.9) 0%, var(--color-card) 100%)",
-              }}
-              aria-hidden
-            />
+              }}>
+            {/* Background image - absolute layer (same method as Hero) */}
+            
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 overflow-hidden" aria-hidden>
+              <img src="/Analytics_bg.png" alt="" className="h-full w-full object-cover object-center" />
+            </div>
+            
+            
             <div className="relative z-10 flex w-full min-w-0 flex-col gap-6 lg:w-[65%] lg:flex-row lg:self-center">
               <FeatureCard
                 icon="target"

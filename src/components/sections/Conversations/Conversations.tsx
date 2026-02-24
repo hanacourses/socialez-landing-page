@@ -1,7 +1,6 @@
 "use client";
 
 import { SECTION } from "./constants";
-import { InboxComponent } from "./InboxComponent";
 
 export const Conversations = () => {
   return (
@@ -16,7 +15,17 @@ export const Conversations = () => {
       }}
       aria-labelledby="conversations-heading"
     >
-      <div className="mx-auto max-w-7xl">
+      <div
+        className="absolute inset-0 overflow-hidden opacity-50"
+        aria-hidden
+      >
+        <img
+          src="/conversation_bg.png"
+          alt=""
+          className="h-full w-full object-cover object-center"
+        />
+      </div>
+      <div className="relative z-10 mx-auto max-w-7xl">
         {/* Two Column Layout */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-12 xl:gap-16 ">
           {/* Left Column - Text Content */}
@@ -30,7 +39,7 @@ export const Conversations = () => {
               </span>
               <h2
                 id="conversations-heading"
-                className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+                className="mt-4 text-[24px] font-bold tracking-tight text-gray-900 md:text-[32px]"
               >
                 {SECTION.title}
               </h2>

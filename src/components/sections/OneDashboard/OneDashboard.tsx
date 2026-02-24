@@ -66,7 +66,7 @@ const CardBase = ({
           decoding="async"
         />
         {imageOverlay != null && (
-          <div className="absolute md:bottom-12 bottom-8 left-0 right-0 z-10 mx-auto md:w-[350px] w-[250px] min-h-[88px] overflow-hidden">
+          <div className="absolute bottom-6 left-0 right-0 z-10 mx-auto w-[min(92%,250px)] min-h-16 overflow-hidden sm:bottom-8 sm:w-[260px] md:bottom-10 md:w-[320px] md:min-h-[88px] lg:bottom-12 lg:w-[350px]">
             {imageOverlay}
           </div>
         )}
@@ -115,7 +115,7 @@ export const OneDashboard = () => {
           <h2
             ref={headingRef}
             id="one-dashboard-heading"
-            className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+            className="mt-4 text-[24px] font-bold tracking-tight text-gray-900 md:text-[32px]"
             style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
           >
             {words.map((word, index) => (
