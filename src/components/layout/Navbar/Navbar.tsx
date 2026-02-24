@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import { Logo } from "./Logo";
 import { NAV_LINKS } from "./constants";
+import Button from "@/components/UI/Button";
 
 const getActiveHref = (): string => {
   if (typeof window === "undefined") return "/";
@@ -83,11 +84,10 @@ const NavLink = ({
     <Link
       href={href}
       onClick={onClick}
-      className={`text-sm font-medium transition-colors rounded px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${
-        isActive
-          ? "text-blue-600"
-          : "text-gray-800 hover:text-blue-600"
-      }`}
+      className={`text-md font-semibold transition-colors rounded px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${isActive
+        ? "text-blue-600"
+        : "text-gray-800 hover:text-blue-600"
+        }`}
       role="menuitem"
       aria-current={isActive ? "page" : undefined}
     >
@@ -125,11 +125,11 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className="relative mx-auto flex w-full min-w-0 max-w-7xl items-center justify-between gap-6 rounded-2xl bg-white px-4 py-3 shadow-md ring-1 ring-black/5 sm:px-6"
+        className="relative mx-auto flex w-full min-w-0 max-w-7xl items-center justify-between gap-6 rounded-2xl bg-white px-4 py-4.5 shadow-md ring-1 ring-black/5 sm:px-6"
         role="navigation"
         aria-label="Main navigation"
       >
-        <Logo />
+        <Logo height={12} />
 
         {/* Desktop nav links - hidden on mobile */}
         <ul className="hidden items-center gap-8 lg:flex" role="menubar">
@@ -144,13 +144,7 @@ export const Navbar = () => {
         </ul>
 
         {/* Desktop Signup - hidden on mobile */}
-        <Link
-          href="#signup"
-          className="hidden shrink-0 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 lg:inline-flex"
-          aria-label="Sign up"
-        >
-          Signup
-        </Link>
+        <Button href="#signup" className="hidden lg:inline-flex" btnClassName="font-semibold!" variant="primary">Signup</Button>
 
         {/* Mobile hamburger button */}
         <button
@@ -198,27 +192,24 @@ export const Navbar = () => {
       {/* Mobile menu overlay */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 left-0 top-0 z-40 lg:hidden ${
-          isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
-        }`}
+        className={`fixed inset-0 left-0 top-0 z-40 lg:hidden ${isMobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"
+          }`}
         aria-hidden={!isMobileMenuOpen}
       >
         {/* Backdrop */}
         <button
           type="button"
           onClick={handleCloseMobileMenu}
-          className={`absolute inset-0 bg-black/50 transition-opacity ${
-            isMobileMenuOpen ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 bg-black/50 transition-opacity ${isMobileMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
           aria-label="Close menu"
           tabIndex={-1}
         />
 
         {/* Slide-in panel */}
         <div
-          className={`absolute right-0 top-0 flex h-full w-full max-w-xs flex-col gap-6 bg-white px-6 py-6 shadow-xl transition-transform duration-300 ease-out ${
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`absolute right-0 top-0 flex h-full w-full max-w-xs flex-col gap-6 bg-white px-6 py-6 shadow-xl transition-transform duration-300 ease-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="flex justify-end">
             <button

@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import Button from "@/components/UI/Button";
+import CtaButton from "@/components/UI/CtaButton";
+import { useRef, useState, useEffect } from "react";
 
 const HERO = {
   heading: "Social media Made easy",
@@ -36,12 +36,12 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] overflow-hidden bg-background"
+      className="relative min-h-[85vh] overflow-hidden bg-background bg-linear-to-b from-primary/40 via-primary/10 to-background"
       aria-labelledby="hero-heading"
-      style={{
-        background:
-          "linear-gradient(to bottom, color-mix(in srgb, var(--color-primary) 25%, transparent) 0%, var(--background) 100%)",
-      }}  
+    // style={{
+    //   background:
+    //     "linear-gradient(to bottom, color-mix(in srgb, var(--color-primary) 25%, transparent) 0%, var(--background) 100%)",
+    // }}
     >
       {/* Background image - absolute layer; subtle parallax via ScrollSmoother */}
       <div
@@ -50,19 +50,12 @@ export const Hero = () => {
         data-speed="0.6"
         aria-hidden
       />
-      {/* Gradient overlay */}
-      <div
-        className="absolute inset-0 z-[1]"
-        
-        aria-hidden
-      />
-      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-24 pb-8 text-center sm:px-6 md:pt-36"
-      
-      >
+      <div className="absolute top-0 left-0 w-full h-24 bg-linear-to-b from-white/90 via-white/50 to-transparent z-1" aria-hidden />
+      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-7xl flex-col items-center px-4 pt-24 pb-8 text-center sm:px-6 md:pt-36">
         <h1
           ref={headingRef}
           id="hero-heading"
-          className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl"
+          className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl max-w-lg leading-[1.1] mx-auto"
           style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
         >
           {words.map((word, index) => (
@@ -81,24 +74,11 @@ export const Hero = () => {
             </span>
           ))}
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-gray-600 sm:text-xl">
+        <p className="mt-4 max-w-xl text-lg text-gray-600 sm:text-xl">
           {HERO.description}
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-4">
-          <Button href={HERO.ctaPrimaryHref} variant="primary" btnClassName="w-full sm:w-auto">
-            {HERO.ctaPrimary}
-          </Button>
-          <Button
-            variant="outline"
-            dataCalLink="bhaskar-socialez/setup-call"
-            dataCalNamespace="setup-call"
-            dataCalConfig='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-            btnClassName="w-full sm:w-auto"
-          >
-            {HERO.ctaSecondary}
-          </Button>
-        </div>
+        <CtaButton />
 
         {/* Dashboard preview - floats below hero with shadow */}
         <div className="relative mt-12 w-full max-w-5xl px-2 sm:px-4">

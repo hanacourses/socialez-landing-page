@@ -9,11 +9,11 @@ const PlanAndPricing = () => {
         </svg>
     );
     return (
-        <div id="plans" className="w-full bg-white py-12 flex flex-col justify-center items-center gap-2">
+        <div id="plans" className="w-full bg-white  flex flex-col justify-center items-center gap-2">
             <span className="text-sm text-slate-900 font-medium bg-yellow text-center p-2 px-4 rounded-full w-fit mx-auto">Pricing</span>
             <h2 className="text-4xl font-bold tracking-tight text-black text-center py-2.5 sm:text-5xl">Start small. Grow easily.</h2>
             <div className="w-full max-w-7xl mx-auto flex justify-center items-center gap-2 flex-col bg-surface p-8 rounded-3xl">
-                <div className="flex justify-center items-center gap-8 w-full">
+                <div className="flex justify-center items-center gap-8 w-full lg:flex-row flex-col">
                     {PLAN_AND_PRICING.map((item, idx) => {
                         return (
                             <CardBase key={idx} buttonText={item.buttonText} buttonVariant={item.buttonVariant as "primary" | "outline"} title={item.title} price={item.price} description={item.description} features={item.features} subFeature={item.subFeature} subFeatureTitle={item.subFeatureTitle} isMostPopular={item.isMostPopular} />

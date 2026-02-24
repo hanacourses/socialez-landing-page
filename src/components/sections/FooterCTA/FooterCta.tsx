@@ -3,7 +3,7 @@ import CtaButton from "@/components/UI/CtaButton";
 export default function FooterCta() {
     return (
         <section
-            className="px-4 py-12 sm:px-6 md:py-16 bg-white"
+            className="px-4 py-2 sm:px-4 md:py-4 bg-white"
             aria-labelledby="footer-cta-heading"
         >
             <div className="mx-auto max-w-7xl rounded-4xl bg-surface">

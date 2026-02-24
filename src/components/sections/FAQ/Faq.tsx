@@ -65,12 +65,12 @@ export default function Faq() {
     return (
         <section
             id="faq"
-            className="w-full  mx-auto bg-white flex justify-center items-center"
+            className="w-full  mx-auto bg-white flex justify-center items-center py-2 lg:py-16 p-4"
             aria-labelledby="faq-heading"
         >
             <div className="bg-linear-to-b from-faq via-faq to-white px-4 sm:px-18 md:py-24 max-w-7xl rounded-[50px]"
             >
-                <div className="mx-auto flex max-w-6xl flex-col gap-12 md:grid md:grid-cols-2 md:items-start">
+                <div className="mx-auto flex max-w-6xl flex-col gap-6 lg:gap-12 md:grid md:grid-cols-2 md:items-star py-4">
                     {/* Left column: heading and copy */}
                     <div className="max-w-xl">
                         <SectionBadge variant="primary" className="shadow-sm" id="faq-heading">

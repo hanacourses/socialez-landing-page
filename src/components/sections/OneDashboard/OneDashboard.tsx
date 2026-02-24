@@ -134,7 +134,7 @@ export const OneDashboard = () => {
               </span>
             ))}
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base text-gray-600">
+          <p className="mx-auto max-w-lg mt-3 text-base text-gray-600">
             {SECTION.subtitle}
           </p>
         </div>

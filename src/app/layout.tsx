@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SocialEZ",
   description: "SocialEZ landing page",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export const viewport = {

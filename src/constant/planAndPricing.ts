@@ -35,8 +35,8 @@ export const PLAN_AND_PRICING = [
         buttonLink: () => {
             console.log("Get Started");
         },
-        features: ["50 social accounts", "Unlimited users and clients", "Unlimited AI credits", "White-label"],
+        features: ["50 social accounts", "Unlimited users and clients", "Unlimited AI credits","Dedicated Account manager"],
         subFeatureTitle: "Advance Capabilities",
-        subFeature: ["Migration support", "Single Sign-On (SSO)", "API access", "Dedicated manager"],
+        subFeature: ["White-labelt", "Single Sign-On (SSO)", "API access", "Migration support"]
     }
 ]
