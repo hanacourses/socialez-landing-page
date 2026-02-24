@@ -170,7 +170,11 @@ export const FeaturesTabs = () => {
       <div className="sticky top-0 z-10 flex min-h-screen flex-col justify-center px-12 py-16 sm:px-12 md:py-24 items-center">
         <div className="p-8 border border-slate-100 rounded-3xl  w-full">
           {/* Header with entrance animation */}
-          <div
+         <div className="flex items-center justify-start gap-4">
+          <div>
+            <img src="/AI-Assist.gif" alt="" className="md:w-[250px] w-full h-auto" />
+          </div>
+         <div
             className={`max-w-2xl transition-all duration-700 ease-out ${hasEntered
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
@@ -192,6 +196,7 @@ export const FeaturesTabs = () => {
               {FEATURES_SECTION.subheading}
             </p>
           </div>
+         </div>
 
           <div
             className={`mt-12 grid gap-8 transition-all duration-700 ease-out delay-200 lg:grid-cols-[320px_1fr] lg:gap-12 lg:items-center ${hasEntered
