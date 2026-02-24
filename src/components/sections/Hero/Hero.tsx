@@ -1,15 +1,10 @@
 "use client";
 
 import CtaButton from "@/components/UI/CtaButton";
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef, useEffect, useState } from "react";
 import Button from "@/components/UI/Button";
 
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+// We'll use IntersectionObserver instead of GSAP ScrollTrigger
 
 const HERO = {
   heading: "Social media Made easy",
@@ -24,52 +19,22 @@ export const Hero = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const wordsRef = useRef<HTMLSpanElement[]>([]);
 
+  const [revealed, setRevealed] = useState(false);
+
   useEffect(() => {
     const heading = headingRef.current;
     if (!heading) return;
-
-    const words = wordsRef.current.filter(Boolean);
-    if (words.length === 0) return;
-
-    // Set initial state
-    gsap.set(words, {
-      opacity: 0,
-      y: 80,
-      rotationX: -90,
-    });
-
-    // Create timeline with ScrollTrigger
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heading,
-        start: "top 85%",
-        end: "bottom 15%",
-        toggleActions: "play none none none",
-        once: true,
-      },
-    });
-
-    // Animate words on scroll
-    tl.to(words, {
-      opacity: 1,
-      y: 0,
-      rotationX: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      stagger: {
-        amount: 0.7,
-        from: "start",
-      },
-    });
-
-    return () => {
-      tl.kill();
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === heading) {
-          trigger.kill();
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setRevealed(true);
+          obs.disconnect();
         }
-      });
-    };
+      },
+      { threshold: 0.15 }
+    );
+    obs.observe(heading);
+    return () => obs.disconnect();
   }, []);
 
   // Split heading into words
@@ -102,18 +67,32 @@ export const Hero = () => {
           style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
           className=" font-bold! max-w-lg leading-[1.1] mx-auto text-gray-900 text-4xl md:text-7xl"
         >
-          {words.map((word, index) => (
-            <span
-              key={index}
-              ref={(el) => {
-                if (el) wordsRef.current[index] = el;
-              }}
-              className="inline-block"
-            >
-              {word}
-              {index < words.length - 1 && "\u00A0"}
-            </span>
-          ))}
+          {words.map((word, index) => {
+            const delay = `${index * 0.07}s`;
+            const common = {
+              transitionProperty: "transform, opacity",
+              transitionDuration: "0.9s",
+              transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)",
+              transitionDelay: delay,
+              display: "inline-block",
+            } as React.CSSProperties;
+            const style = revealed
+              ? { ...common, opacity: 1, transform: "translateY(0) rotateX(0)" }
+              : { ...common, opacity: 0, transform: "translateY(80px) rotateX(-90deg)" };
+
+            return (
+              <span
+                key={index}
+                ref={(el) => {
+                  if (el) wordsRef.current[index] = el;
+                }}
+                style={style}
+              >
+                {word}
+                {index < words.length - 1 && "\u00A0"}
+              </span>
+            );
+          })}
         </h1>
         <p className="mt-4 max-w-xl text-lg text-gray-600 sm:text-xl">
           {HERO.description}

@@ -10,28 +10,28 @@ export const TABS = [
     label: "Brand Setup",
     description: "Add your brand name, industry, tone of voice, and audience to set the foundation.",
     /** Replace with your image or gif path */
-    mediaUrl: "",
+    mediaUrl: "/feature-tab-1.png",
     mediaAlt: "Brand Setup",
   },
   {
     id: "brand-voice",
     label: "Zee Learns Your Brand Voice",
     description: "Our AI learns how you communicate and keeps your content on brand.",
-    mediaUrl: "",
+    mediaUrl: "/feature-tab-2.webm",
     mediaAlt: "Brand Voice",
   },
   {
     id: "ai-content",
     label: "AI Content Creation",
     description: "Create posts, captions, and ideas in seconds with AI that knows your brand.",
-    mediaUrl: "./featuretab-aicontent.png",
+    mediaUrl: "/feature-tab-3.png",
     mediaAlt: "AI Content Creation",
   },
   {
     id: "publishing",
     label: "Multi-Platform Publishing",
     description: "Schedule and publish to all your social channels from one place.",
-    mediaUrl: "",
+    mediaUrl: "/feature-tab-4.webm",
     mediaAlt: "Multi-Platform Publishing",
   },
 ] as const;

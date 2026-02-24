@@ -14,32 +14,45 @@ const FAQ_ITEMS = [
         id: "ai-assist",
         question: "How does AI Assist work?",
         answer:
-            "AI Assist uses advanced language models to suggest captions, hashtags, and reply drafts based on your brand voice and context. You can edit or approve suggestions before publishing.",
+            "AI Assist works from the brand details you provide.You add your brand name, industry, tone of voice, and audience.Zee then helps generate captions, creatives, and hashtags aligned with your brand voice.",
     },
     {
         id: "technical-skills",
         question: "Do I need technical skills to use SocialEZ?",
         answer:
-            "No. SocialEZ is built for marketers and small teams. The interface is simple, and AI Assist handles the heavy lifting so you can focus on strategy and engagement.",
+            "No. SocialEZ is designed to be simple and intuitive. You can connect your accounts, set up your brand, and start posting in minutes.",
     },
     {
         id: "platforms",
         question: "What platforms does SocialEZ support?",
         answer:
-            "SocialEZ supports major platforms including Instagram, Facebook, X (Twitter), LinkedIn, and more. Connect your accounts once and manage them all from a single workspace.",
+            "You can connect:Instagram, Facebook, LinkedIn, X (Twitter), Pinterest, and Google My Business. All managed from one dashboard.",
     },
     {
         id: "ai-credits",
         question: "What are AI credits?",
         answer:
-            "AI credits are used when you run AI-powered features like caption suggestions, reply drafts, or content ideas. Your plan includes a monthly allowance; extra credits can be added as needed.",
+            "AI credits are used when generating or improving content with AI Assist. Each plan includes a set number of credits. You can upgrade your plan anytime if you need more.",
     },
     {
-        id: "multiple-clients",
+        id: "multiple-accounts",
         question: "Can I manage multiple clients?",
         answer:
-            "Yes. You can create separate workspaces or connect multiple client accounts. Switch between them easily and keep analytics and content organized per client.",
+            "Yes. The Standard and Enterprise plans allow multiple accounts and users. Enterprise includes white-label and advanced controls for agencies.",
     },
+    {
+        id: "setup-time",
+        question: "How long does setup take?",
+        answer:
+            "Most users connect their accounts and set up their brand in under 10 minutes. If you prefer assistance, you can book a 15-minute setup call and we’ll guide you.",
+    },
+    {
+        id: "data-security",
+        question: " Is my data secure?",
+        answer:
+            "Yes. SocialEZ uses secure authentication and encrypted connections to protect your data and connected accounts.",
+    },
+
 ] as const;
 
 function ChevronDown({ className }: { className?: string }) {
