@@ -82,7 +82,7 @@ export const Hero = () => {
 
         {/* Dashboard preview - floats below hero with shadow */}
         <div className="relative mt-12 w-full max-w-5xl px-2 sm:px-4">
-          <div className="overflow-hidden rounded-2xl shadow-1xl ring-1 ring-black/5">
+          <div className="overflow-hidden rounded-2xl shadow-1xl">
             <img
               src="/dashboardImg2.png"
               alt="SocialEZ dashboard preview"
