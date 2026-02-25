@@ -22,11 +22,39 @@ const useActiveNavLink = () => {
     const handleHashChange = () => setActiveHref(getActiveHref());
 
     const updateActiveFromScroll = () => {
+      // Respect hash if present
+      const hash = window.location.hash;
+      if (hash) {
+        const matchingLink = NAV_LINKS.find((l) => l.href === hash);
+        if (matchingLink) {
+          setActiveHref(matchingLink.href);
+          return;
+        }
+      }
+
+      // Check if we're at the top of the page (within 150px from top)
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY < 150) {
+        setActiveHref("/");
+        return;
+      }
+
       const headerOffset = 120;
       const sections = NAV_LINKS.filter((l) => l.sectionId).map((l) => ({
         link: l,
         el: document.getElementById(l.sectionId!),
       }));
+
+      // Check if hero section is visible at the top
+      const heroSection = sections.find((s) => s.link.href === "/");
+      if (heroSection?.el) {
+        const heroTop = heroSection.el.getBoundingClientRect().top - headerOffset;
+        // If hero section is still in the upper portion of viewport, prioritize it
+        if (heroTop >= -100 && heroTop <= window.innerHeight * 0.3) {
+          setActiveHref("/");
+          return;
+        }
+      }
 
       const visible = sections
         .filter(({ el }) => el)
@@ -57,11 +85,23 @@ const useActiveNavLink = () => {
       updateActiveFromScroll();
     }, 100);
 
+    // Add scroll event listener for more responsive updates (throttled)
+    let scrollTimeout: NodeJS.Timeout | null = null;
+    const handleScroll = () => {
+      if (scrollTimeout) return;
+      scrollTimeout = setTimeout(() => {
+        updateActiveFromScroll();
+        scrollTimeout = null;
+      }, 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("hashchange", handleHashChange);
 
     return () => {
       clearTimeout(timer);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
       observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
