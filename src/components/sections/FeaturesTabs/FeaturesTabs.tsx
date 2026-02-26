@@ -12,7 +12,6 @@ const TAB_CHANGE_INTERVAL_MS = 600;
 
 export const FeaturesTabs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [hasEntered, setHasEntered] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const tabsListRef = useRef<HTMLDivElement>(null);
@@ -31,20 +30,6 @@ export const FeaturesTabs = () => {
 
   activeIndexRef.current = activeIndex;
   const activeTab = TABS[activeIndex];
-
-  // Entrance: animate in when section enters viewport
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setHasEntered(true);
-      },
-      { threshold: 0.15, rootMargin: "0px" }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
 
   // Wheel/touch: when section is in view, block page scroll until user has passed through all tabs (one per interval); then allow next section.
   useEffect(() => {
@@ -194,13 +179,7 @@ export const FeaturesTabs = () => {
       {/* Sticky: scroll down cycles through all tabs (blocked until last tab), then page scrolls to next section */}
       <div className="sticky top-0 z-10 flex min-h-screen flex-col justify-center lg:px-12  md:px-6 px-2 items-center">
         <div className="lg:p-8 md:p-4 p-2 border border-slate-100 rounded-3xl  w-full">
-          {/* Header with entrance animation */}
-          <div
-            className={`max-w-2xl transition-all duration-700 ease-out ${hasEntered
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0"
-              }`}
-          >
+          <div className="max-w-2xl">
             <span
               className="inline-block rounded-full bg-amber-100 px-4 py-1.5 text-sm font-normal text-gray-900"
               aria-hidden
@@ -218,12 +197,7 @@ export const FeaturesTabs = () => {
             </p>
           </div>
 
-          <div
-            className={`mt-12 grid gap-8 transition-all duration-700 ease-out delay-200 lg:grid-cols-[320px_1fr] lg:gap-12 lg:items-center ${hasEntered
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0"
-              }`}
-          >
+          <div className="mt-12 grid gap-8 lg:grid-cols-[320px_1fr] lg:gap-12 lg:items-center">
             {/* Left: Tabs — fixed while scrolling (parent is sticky) */}
             <div className="flex flex-col overflow-x-auto tabs-scrollbar-hide">
               <div

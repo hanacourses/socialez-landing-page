@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
 import SectionBadge from "@/components/UI/SectionBadge";
 import { SECTION, CARD_1, CARD_2, CARD_3, STEP_IMAGES, STEP_LABELS_IMAGE } from "./constants";
 import { SocialIconsSlider } from "./SocialIconsSlider";
@@ -83,26 +82,6 @@ const CardBase = ({
 );
 
 export const OneDashboard = () => {
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    const heading = headingRef.current;
-    if (!heading) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setHasAnimated(true);
-      },
-      { threshold: 0.15, rootMargin: "0px" }
-    );
-    observer.observe(heading);
-    return () => observer.disconnect();
-  }, []);
-
-  // Split heading into words
-  const words = SECTION.title.split(" ");
-
   return (
     <section
       id="one-dashboard"
@@ -113,26 +92,10 @@ export const OneDashboard = () => {
         <div className="text-center">
           <SectionBadge variant="cyan">{SECTION.badge}</SectionBadge>
           <h2
-            ref={headingRef}
             id="one-dashboard-heading"
             className="mt-4 text-[24px] font-bold tracking-tight text-gray-900 md:text-[32px]"
-            style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
           >
-            {words.map((word, index) => (
-              <span
-                key={index}
-                className={`inline-block transition-all duration-700 ease-out ${
-                  hasAnimated ? "opacity-100" : "translate-y-20 opacity-0"
-                }`}
-                style={{
-                  transitionDelay: hasAnimated ? `${index * 0.12}s` : "0ms",
-                  transform: hasAnimated ? "translateY(0)" : "translateY(80px)",
-                }}
-              >
-                {word}
-                {index < words.length - 1 && "\u00A0"}
-              </span>
-            ))}
+            {SECTION.title}
           </h2>
           <p className="mx-auto max-w-lg mt-3 text-base text-gray-600">
             {SECTION.subtitle}
