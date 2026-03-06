@@ -20,8 +20,8 @@ const PlanAndPricing = () => {
                         )
                     })}
                 </div>
-                <Link data-cal-link="bhaskar-socialez/setup-call"
-                    data-cal-namespace="setup-call"
+                <Link data-cal-link="bhaskarbaswala/socialez-demo"
+                    data-cal-namespace="socialez-demo"
                     data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                     aria-label="Book a 15-minute setup call" href="#" className="text-md font-medium text-primary flex justify-center items-center gap-2 pt-6 group">Book a 15-minute setup call <span className="group-hover:translate-x-1 transition-all duration-300"><ProcessIcon /></span></Link>
             </div>

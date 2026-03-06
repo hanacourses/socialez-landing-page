@@ -69,8 +69,14 @@ export default function RootLayout({
                   p(cal, ar); 
                 }; 
               })(window, "https://app.cal.com/embed/embed.js", "init");
-              Cal("init", "setup-call", {origin:"https://app.cal.com"});
-              Cal.ns["setup-call"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#0172F4"}},"hideEventTypeDetails":false,"layout":"month_view"});
+              Cal("init", "socialez-demo", {origin:"https://app.cal.com"});
+
+              // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+              // data-cal-link="bhaskarbaswala/socialez-demo"
+              // data-cal-namespace="socialez-demo"
+              // data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+
+              Cal.ns["socialez-demo"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#2B59AC"},"dark":{"cal-brand":"#4FCEFF"}},"hideEventTypeDetails":false,"layout":"month_view"});
             `,
           }}
         />

@@ -39,8 +39,8 @@ const CtaButton = (props: CtaButtonProps) => {
       </Button>
       <Button
         variant="outline"
-        dataCalLink="bhaskar-socialez/setup-call"
-        dataCalNamespace="setup-call"
+        dataCalLink="bhaskarbaswala/socialez-demo"
+        dataCalNamespace="socialez-demo"
         dataCalConfig='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
         btnClassName={`${fullWidthMobile} border-none! font-semibold! text-black! cursor-pointer!`}
       >
