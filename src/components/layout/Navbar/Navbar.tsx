@@ -1,37 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, MouseEvent } from "react";
 import { Logo } from "./Logo";
 import { NAV_LINKS } from "./constants";
 import Button from "@/components/UI/Button";
-
-const getActiveHref = (): string => {
-  if (typeof window === "undefined") return "/";
-  const hash = window.location.hash;
-  if (hash) return hash;
-  return "/";
-};
 
 const useActiveNavLink = () => {
   // Use "/" for initial state so server and client match (avoids hydration mismatch)
   const [activeHref, setActiveHref] = useState("/");
 
   useEffect(() => {
-    setActiveHref(getActiveHref());
-    const handleHashChange = () => setActiveHref(getActiveHref());
-
+    setActiveHref("/");
     const updateActiveFromScroll = () => {
-      // Respect hash if present
-      const hash = window.location.hash;
-      if (hash) {
-        const matchingLink = NAV_LINKS.find((l) => l.href === hash);
-        if (matchingLink) {
-          setActiveHref(matchingLink.href);
-          return;
-        }
-      }
-
       // Check if we're at the top of the page (within 150px from top)
       const scrollY = window.scrollY || window.pageYOffset;
       if (scrollY < 150) {
@@ -95,14 +76,12 @@ const useActiveNavLink = () => {
       }, 50);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("hashchange", handleHashChange);
 
     return () => {
       clearTimeout(timer);
       if (scrollTimeout) clearTimeout(scrollTimeout);
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
 
@@ -112,17 +91,19 @@ const useActiveNavLink = () => {
 const NavLink = ({
   label,
   href,
+  sectionId,
   isActive,
   onClick,
 }: {
   label: string;
   href: string;
   isActive?: boolean;
-  onClick?: () => void;
+  sectionId?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }) => (
   <li role="none">
     <Link
-      href={href}
+      href={href === "/" ? "/" : "#"}
       onClick={onClick}
       className={`text-md font-semibold transition-colors rounded px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${isActive
         ? "text-blue-600"
@@ -140,6 +121,21 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const activeHref = useActiveNavLink();
 
+  const scrollToSection = (sectionId?: string) => {
+    if (!sectionId) return;
+    const el = document.getElementById(sectionId);
+    if (!el) return;
+
+    const headerOffset = 120;
+    const elementTop = el.getBoundingClientRect().top + window.scrollY;
+    const targetPosition = elementTop - headerOffset;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+  };
+
   const handleToggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
   }, []);
@@ -147,6 +143,25 @@ export const Navbar = () => {
   const handleCloseMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
   }, []);
+
+  const handleNavItemClick = useCallback(
+    (href: string, sectionId?: string, closeMenu?: boolean) =>
+      (event: MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+
+        if (closeMenu) {
+          handleCloseMobileMenu();
+        }
+
+        if (href === "/") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
+        }
+
+        scrollToSection(sectionId);
+      },
+    [handleCloseMobileMenu],
+  );
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -173,18 +188,27 @@ export const Navbar = () => {
 
         {/* Desktop nav links - hidden on mobile */}
         <ul className="hidden items-center gap-8 lg:flex" role="menubar">
-          {NAV_LINKS.map(({ label, href }) => (
+          {NAV_LINKS.map(({ label, href, sectionId }) => (
             <NavLink
               key={label}
               label={label}
               href={href}
+              sectionId={sectionId}
               isActive={activeHref === href}
+              onClick={handleNavItemClick(href, sectionId)}
             />
           ))}
         </ul>
 
         {/* Desktop Signup - hidden on mobile */}
-        <Button href="#signup" className="hidden lg:inline-flex" btnClassName="font-semibold!" variant="primary">Signup</Button>
+        <Button
+          href="https://app.socialez.com/register"
+          className="hidden lg:inline-flex"
+          btnClassName="font-semibold!"
+          variant="primary"
+        >
+          Signup
+        </Button>
 
         {/* Mobile hamburger button */}
         <button
@@ -275,18 +299,19 @@ export const Navbar = () => {
             </button>
           </div>
           <ul className="flex flex-col gap-4" role="menubar">
-            {NAV_LINKS.map(({ label, href }) => (
+            {NAV_LINKS.map(({ label, href, sectionId }) => (
               <NavLink
                 key={label}
                 label={label}
                 href={href}
                 isActive={activeHref === href}
-                onClick={handleCloseMobileMenu}
+                sectionId={sectionId}
+                onClick={handleNavItemClick(href, sectionId, true)}
               />
             ))}
           </ul>
           <Link
-            href="#signup"
+            href="https://app.socialez.com/register"
             onClick={handleCloseMobileMenu}
             className="mt-4 shrink-0 rounded-full bg-blue-600 px-5 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             aria-label="Sign up"

@@ -16,7 +16,19 @@ const PlanAndPricing = () => {
                 <div className="flex justify-center items-center gap-8 w-full lg:flex-row flex-col">
                     {PLAN_AND_PRICING.map((item, idx) => {
                         return (
-                            <CardBase key={idx} buttonText={item.buttonText} buttonVariant={item.buttonVariant as "primary" | "outline"} title={item.title} price={item.price} description={item.description} features={item.features} subFeature={item.subFeature} subFeatureTitle={item.subFeatureTitle} isMostPopular={item.isMostPopular} />
+                            <CardBase
+                                key={idx}
+                                buttonText={item.buttonText}
+                                buttonVariant={item.buttonVariant as "primary" | "outline"}
+                                buttonHref={item.buttonHref}
+                                title={item.title}
+                                price={item.price}
+                                description={item.description}
+                                features={item.features}
+                                subFeature={item.subFeature}
+                                subFeatureTitle={item.subFeatureTitle}
+                                isMostPopular={item.isMostPopular}
+                            />
                         )
                     })}
                 </div>

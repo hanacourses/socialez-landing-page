@@ -7,7 +7,7 @@ const HERO = {
   description:
     "Create, schedule, publish, and track your social media from one simple, AI-powered workspace.",
   ctaPrimary: "Start free trial",
-  ctaPrimaryHref: "#signup",
+  ctaPrimaryHref: "#plans",
   ctaSecondary: "Book a 15-minute setup call",
 } as const;
 

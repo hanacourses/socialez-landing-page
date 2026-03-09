@@ -7,7 +7,7 @@ interface CardBaseProps {
     className?: string;
     buttonText?: string;
     buttonVariant?: "primary" | "outline";
-    buttonLink?: () => void;
+    buttonHref?: string;
     isMostPopular?: boolean;
     description: string;
     features?: string[];
@@ -15,7 +15,7 @@ interface CardBaseProps {
     subFeatureTitle?: string;
 }
 const CardBase = (props: CardBaseProps) => {
-    const { title, price, className, buttonText, buttonVariant, buttonLink, isMostPopular = false, description, features = [], subFeature = [], subFeatureTitle = "" } = props;
+    const { title, price, className, buttonText, buttonVariant, buttonHref, isMostPopular = false, description, features = [], subFeature = [], subFeatureTitle = "" } = props;
     const FeatureIcons = () => (
             <svg className="h-5 w-5 text-primary shrink-0" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                 <path d="M6.98438 10.0011L8.9927 12.0177L13.0177 7.98438" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -35,7 +35,7 @@ const CardBase = (props: CardBaseProps) => {
                 <h4 className="text-2xl md:text-4xl font-bold text-slate-900">${price} <span className="text-xs md:text-sm font-normal text-slate-500">/ mo</span></h4>
                 <p className="text-base font-normal text-slate-800">{description}</p>
             </div>
-            <Button className="py-6 w-full flex justify-center items-center" btnClassName="w-full shadow-lg" variant={buttonVariant || "primary"} onClick={buttonLink}>
+            <Button className="py-6 w-full flex justify-center items-center" btnClassName="w-full shadow-lg" variant={buttonVariant || "primary"} href={buttonHref}>
                 {buttonText}
             </Button>
             <ul className="flex flex-col justify-start items-start gap-4 border-b border-slate-200 pt-4 pb-4">

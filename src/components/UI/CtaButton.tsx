@@ -8,7 +8,7 @@ interface CtaButtonProps {
   children?: React.ReactNode;
 }
 
-const DEFAULT_PRIMARY = { href: "#signup", label: "Start free" };
+const DEFAULT_PRIMARY = { label: "Start free" };
 const DEFAULT_SECONDARY = { href: "#book-call", label: "Book a 15-minute setup call" };
 
 const CtaButton = (props: CtaButtonProps) => {
@@ -30,10 +30,23 @@ const CtaButton = (props: CtaButtonProps) => {
   return (
     <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
       <Button
-        href={DEFAULT_PRIMARY.href}
         className="w-full lg:w-auto"
-        btnClassName="w-full lg:w-auto max-w-[250px]! font-semibold!"
+        btnClassName="w-full lg:w-auto max-w-[250px]! font-semibold! cursor-pointer!"
         variant="primary"
+        onClick={() => {
+          if (typeof window === "undefined") return;
+          const el = document.getElementById("plans");
+          if (!el) return;
+
+          const headerOffset = 120;
+          const elementTop = el.getBoundingClientRect().top + window.scrollY;
+          const targetPosition = elementTop - headerOffset;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }}
       >
         {DEFAULT_PRIMARY.label}
       </Button>

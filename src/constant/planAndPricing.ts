@@ -6,9 +6,7 @@ export const PLAN_AND_PRICING = [
         buttonText: "Get Started",
         buttonVariant: "outline",
         isMostPopular: false,
-        buttonLink: () => {
-            console.log("Get Started");
-        },
+        buttonHref: "https://app.socialez.com/register",
         features: ["4 social accounts", "1 user", "100 AI Credits", "Basic content library", "Analytics"],
         subFeature: ["Easy upgrade anytime", "Email support"],
     },
@@ -19,9 +17,7 @@ export const PLAN_AND_PRICING = [
         buttonText: "Start 14-day free trial",
         buttonVariant: "primary",
         isMostPopular: true,
-        buttonLink: () => {
-            console.log("Get Started");
-        },
+        buttonHref: "https://app.socialez.com/register",
         features: ["Up to 10 social accounts", "3 users", "1,000 AI Credits", "Full content library", "Analytics","Dedicated account manager","Priority support"],
         subFeature: ["Upgrade anytime"],
     },
@@ -32,9 +28,7 @@ export const PLAN_AND_PRICING = [
         buttonText: "Start 14-day free trial",
         buttonVariant: "outline",
         isMostPopular: false,
-        buttonLink: () => {
-            console.log("Get Started");
-        },
+        buttonHref: "https://app.socialez.com/register",
         features: ["50 social accounts", "Unlimited users and clients", "Unlimited AI credits","Dedicated Account manager"],
         subFeatureTitle: "Advance Capabilities",
         subFeature: ["White-labelt", "Single Sign-On (SSO)", "API access", "Migration support"]
